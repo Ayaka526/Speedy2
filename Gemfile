@@ -66,3 +66,4 @@ gem 'devise'
 #designの為
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+gem 'seed-fu', '~> 2.3'

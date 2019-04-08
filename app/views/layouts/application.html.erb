@@ -8,14 +8,36 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <link rel="stylesheet" href="css/style.css">
 
   </head>
 
   <body>
+
+
+
+     <!-------HEADER-------->
+      <header>
+
+        <nav>
+          <section class="header-logo"><%= image_tag 'speedy.jpg',:size =>'100x60' %></section>
+          <div class="header-list">
+            <ul class="clearfix">
+              <li class="header-item"><%= link_to "login",  new_user_session_path %></li>
+              <li class="header-item"><%= link_to "sign up",   new_user_registration_path %></li></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+
+
+
+
+
+
+
+
     <%= yield %>
   </body>
 </html>

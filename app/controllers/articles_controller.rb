@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
 	end
 
 	def top
+		#@articles = Article.where(image_id: params[:id])
+	    @articles = Article.all
 	end
 
 	def index
@@ -13,4 +15,9 @@ class ArticlesController < ApplicationController
 
 	def stock
 	end
+
+	private
+    def article_params
+      params.require(:article).permit(:title,:body,:image_id)
+    end
 end

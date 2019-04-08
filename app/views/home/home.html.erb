@@ -1,54 +1,14 @@
-<body>
-
-
-             <!-------HEADER-------->
- 			 <header class="top-header">
- 				 <div class="animsition">
-   					 <%= link_to 'topページへ', articles_top_path %>
-  			  	 </div>
-                 <nav class="top-nav">
-  	               <ul>
-  		             <li>login</li>
-  		             <li>sign-in</li>
-  	               </ul>
-                 </nav>
-             </header>
+<body class="user-home">
 
 
              <!-------MAIN----------->
-             <div class= "top-main">
-             	<div class="container">
-             	</div>
 
-             </div>
-
-
-
-
-
-
-
-
-
+             <section class="home-visual"><%= image_tag 'banner.jpg',:size => '1438x800' %>
+				<h1 class="home-title">Speedy</h1>
+				<p class="home-text">you can get information more smart, flexible and efficiently.</p>
+				<ul class="home-button w-50">
+						<%= link_to "Start", articles_top_path, class:"top-link btn btn-primary" %>
+				</ul>
+			</section>
 
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h1>home#home</h1>
-  <div class="animsition">
-    <%= link_to 'topページへ', articles_top_path %>
-  </div>
