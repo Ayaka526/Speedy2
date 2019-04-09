@@ -3,11 +3,12 @@
 
              <!-------MAIN----------->
 
-             <section class="home-visual"><%= image_tag 'banner.jpg',:size => '1438x800' %>
+             <section class="home-visual">
+           			<%= image_tag 'banner.jpg',:size => '1438x800' %>
 				<h1 class="home-title">Speedy</h1>
 				<p class="home-text">you can get information more smart, flexible and efficiently.</p>
-				<ul class="home-button w-50">
-						<%= link_to "Start", articles_top_path, class:"top-link btn btn-primary" %>
+				<ul class="home-button">
+						<%= link_to "Start", feeds_top_path, class: "top-link" %>
 				</ul>
 			</section>
 

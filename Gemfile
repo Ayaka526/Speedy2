@@ -67,3 +67,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'seed-fu', '~> 2.3'
+#RSS機能実装の為
+gem 'feedjira'
+gem 'twitter-bootstrap-rails'
+gem 'httparty'

@@ -7,8 +7,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
-    <link rel="stylesheet" href="css/style.css">
 
   </head>
 
@@ -19,23 +17,17 @@
      <!-------HEADER-------->
       <header>
 
-        <nav>
-          <section class="header-logo"><%= image_tag 'speedy.jpg',:size =>'100x60' %></section>
+        <nav class="header-nav">
+          <section class="header-logo"><%= image_tag 'speedy.jpg',:size =>'150x80' %></section>
           <div class="header-list">
             <ul class="clearfix">
-              <li class="header-item"><%= link_to "login",  new_user_session_path %></li>
-              <li class="header-item"><%= link_to "sign up",   new_user_registration_path %></li></li>
+              <li class="header-item"><%= link_to "sign up", new_user_registration_path, class: "header-signup" %></li>
+              <li class="header-item"><%= link_to "log in",  new_user_session_path, class: "header-login" %></li>
+              <li class="header-item"><%= link_to "home",  home_route_path, class: "header-home" %></li>
             </ul>
           </div>
         </nav>
       </header>
-
-
-
-
-
-
-
 
 
     <%= yield %>
