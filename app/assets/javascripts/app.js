@@ -13,3 +13,27 @@ $(document).ready(function(){
         hidePrevious: false
     });
 });
+
+
+$(document).ready(function () {
+    $('.slider').slick({
+        autoplay: true,
+        autoplaySpeed: 2500,
+        speed: 800,
+        dots: true,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '0%'
+    });
+});
+
+
+$(document).ready(function() {
+
+  $('.menu-trigger').on('click', function() {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    return false;
+  });
+
+ });

@@ -18,12 +18,39 @@
       <header>
 
         <nav class="header-nav">
-          <section class="header-logo"><%= image_tag 'speedy.jpg',:size =>'150x80' %></section>
+          <section class="header-logo"><%= image_tag 'speedy.jpg',:size =>'130x70' %></section>
           <div class="header-list">
             <ul class="clearfix">
+
+              <% if user_signed_in? %>
+                <div id="sp-menu">
+                    <div id="sp-title">Menu</div>
+                      <ul>
+                          <p><%= link_to "My page", new_user_registration_path,class: "after-signup" %></p>
+                          <p><%= link_to "Ranking", new_user_registration_path,class: "after-signup" %></p>
+                          <p><%= link_to "Category", new_user_registration_path,class: "after-signup" %></p>
+                          <p><%= link_to "Stock list", new_user_registration_path,class: "after-signup" %></p>
+                          <p><%= link_to "お問い合わせ", new_user_registration_path,class: "after-signup" %></p>
+                      </ul>
+                      </ul>
+                      </ul>
+                </div>
+
+                <div id="hm-icon">
+                     <a class="menu-trigger" href="#">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                     </a>
+                </div>
+
+              <% else %>
               <li class="header-item"><%= link_to "sign up", new_user_registration_path, class: "header-signup" %></li>
               <li class="header-item"><%= link_to "log in",  new_user_session_path, class: "header-login" %></li>
               <li class="header-item"><%= link_to "home",  home_route_path, class: "header-home" %></li>
+
+              <% end %>
+
             </ul>
           </div>
         </nav>

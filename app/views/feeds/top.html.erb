@@ -1,9 +1,19 @@
 <div class="top-container">
-            <div id="theTarget">
-                <div style="background-image: url(/assets/test1.jpg)"></div>
-                <div style="background-image: url(/assets/test2.jpg)"></div>
-                <div style="background-image: url(/assets/test3.jpg)"></div>
-                <div style="background-image: url(/assets/test4.jpg)"></div>
-                <div style="background-image: url(/assets/test5.jpg)"></div>
-            </div>/
+        <div class="harf_field">
+            <div class="slider">
+				<% @entries.each_with_index do |entry, index|  %>
+                <div style="background-image: url(<%= asset_path("test#{index+1}.jpg")%>)">
+                    <p class="slider-text">
+                        <%= entry.title %><br>
+                        <%= entry.published.strftime("%Y-%m-%d-%R") %>
+                        <%= entry.url %>
+                    </p>
+                </div>
+                <% end %>
+			</div>
+        </div>
 </div>
+
+
+
+
