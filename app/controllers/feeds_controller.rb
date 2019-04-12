@@ -4,7 +4,7 @@ class FeedsController < ApplicationController
 
   def top
 
-    @entries= Entry.limit(5)
+    @entries= Entry.limit(10)
     @feeds = Feed.all
   end
 
@@ -21,6 +21,6 @@ class FeedsController < ApplicationController
     end
 
     def feed_params
-      params.require(:feed).permit(:name, :url, :description)
+      params.require(:feed).permit(:name, :title, :url, :description)
     end
 end

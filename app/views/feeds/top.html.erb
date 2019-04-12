@@ -2,13 +2,14 @@
         <div class="harf_field">
             <div class="slider">
 				<% @entries.each_with_index do |entry, index|  %>
-                <div style="background-image: url(<%= asset_path("test#{index+1}.jpg")%>)">
-                    <p class="slider-text">
-                        <%= entry.title %><br>
-                        <%= entry.published.strftime("%Y-%m-%d-%R") %>
-                        <%= entry.url %>
-                    </p>
-                </div>
+                    <%= link_to entry.url do%>
+                        <div style="background-image: url(<%= asset_path("test#{index+1}.jpg")%>)">
+                            <p class="slider-text">
+                                <%= entry.title %><br>
+                                <%= entry.published.strftime("%Y-%m-%d-%R") %>
+                            </p>
+                        </div>
+                    <% end %>
                 <% end %>
 			</div>
         </div>
