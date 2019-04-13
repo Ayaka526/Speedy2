@@ -59,6 +59,25 @@ body{
         font-size: 55px;
     }
 
+    .name{
+        width: 76%;
+        color: rgb(38, 50, 56);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 1px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 30px;
+        outline: none;
+        box-sizing: border-box;
+        margin-top:20px;
+        margin-bottom: 40px;
+        margin-left: 46px;
+        text-align: center;
+        margin-bottom: 10px;
+        font-family: "Telugu Sangam MN";
+    }
+
     .mail {
     width: 76%;
     color: rgb(38, 50, 56);
@@ -70,11 +89,9 @@ body{
     border-radius: 30px;
     outline: none;
     box-sizing: border-box;
-    margin-top:20px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     margin-left: 46px;
     text-align: center;
-    margin-bottom: 27px;
     font-family: "Telugu Sangam MN";
 
     }
@@ -90,10 +107,8 @@ body{
     border-radius: 30px;
     outline: none;
     box-sizing: border-box;
-    margin-bottom: 50px;
     margin-left: 46px;
     text-align: center;
-    margin-bottom: 10px;
     font-family:  "Telugu Sangam MN";
     }
 
@@ -108,10 +123,8 @@ body{
     border-radius: 30px;
     outline: none;
     box-sizing: border-box;
-    margin-bottom: 50px;
     margin-left: 46px;
     text-align: center;
-    margin-bottom: 10px;
     font-family:  "Telugu Sangam MN";
     }
 
@@ -160,7 +173,7 @@ body{
      }
 
     .signup-sign{
-        padding-top: 40px;
+        padding-top: 30px;
         margin-bottom:15px;
         color: #black;
         font-family: "SignPainter"; font-weight: bolder;

@@ -26,7 +26,7 @@
                 <div id="sp-menu">
                     <div id="sp-title">Menu</div>
                       <ul>
-                          <p><%= link_to "My page", new_user_registration_path,class: "after-signup" %></p>
+                          <p><%= link_to "My page", user_mypage_path(current_user.id),class: "after-signup" %></p>
                           <p><%= link_to "Ranking", new_user_registration_path,class: "after-signup" %></p>
                           <p class="category-list">Category</p>
                                       <h5><%= link_to "新着ニュース", entries_path(id:1),class: "after-signup" %></h5>
@@ -40,6 +40,7 @@
                                       <h5><%= link_to "エンタメ", entries_path(id:9),class: "after-signup" %></h5>
                           <p><%= link_to "Stock list", new_user_registration_path,class: "after-signup" %></p>
                           <p><%= link_to "お問い合わせ", new_user_registration_path,class: "after-signup" %></p>
+                          <p><%= link_to " ログアウト",destroy_user_session_path, method: :delete, class: "logout glyphicon glyphicon-log-out" %></p>
                       </ul>
                       </ul>
                       </ul>

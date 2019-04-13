@@ -1,0 +1,16 @@
+<div class="col-xs-6">
+	<div class="profile-container">
+	<h2 class="profile-name">My page</h2>
+
+
+
+	<div class="row">
+		<% if @user.id == current_user.id %>
+		<p><%= link_to "個人情報を編集",edit_user_path(@user),class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %></p>
+		<p><%= link_to "パスワードの再設定・退会",edit_user_registration_path,class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %></p>
+		<% end %>
+	</div>
+
+	</div>
+
+

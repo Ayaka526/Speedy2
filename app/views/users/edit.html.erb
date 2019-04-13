@@ -1,0 +1,21 @@
+
+<div class="profile-container">
+		<h2 class="profile-name">EDIT</h2>
+
+			<%= form_for(@user) do |f| %>
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>Name</th>
+							<th><%= f.text_field :name, autofocus: true, class:"" %></th>
+						</tr>
+						<tr>
+							<th>E-mail</th>
+							<th><%= f.text_field :email, autofocus: true, class:"" %></th>
+						</tr>
+					</tbody>
+				</table>
+			<%= f.submit "update", class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+			<% end %>
+
+</div>
