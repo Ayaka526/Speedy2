@@ -3,16 +3,16 @@ class FeedsController < ApplicationController
 
 
   def top
-
     @entries= Entry.limit(10)
     @feeds = Feed.all
+
   end
+
+   def show
+   end
 
   def index
-    @feeds = Feed.all
-  end
-
-  def show
+     @feeds = Feed.all
   end
 
   private

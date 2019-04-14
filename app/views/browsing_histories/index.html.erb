@@ -1,0 +1,10 @@
+
+<div class="container">
+  <% @histories.each do |history| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+         <span href="<%= history.entry.url%>"><%= history.entry.title %><span> - <i> published <%= history.entry.published.strftime("%Y-%m-%d-%R") %></i>
+      </div>
+    </div>
+  <% end %>
+</div>

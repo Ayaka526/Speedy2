@@ -18,3 +18,65 @@
 //= require_tree .
 
 // Left Slidebar controls
+
+
+$(document).ready(function(){
+    $("#theTarget").skippr({
+        transition: 'slide',
+        speed: 3000,
+        easing: 'easeOutQuart',
+        navType: 'block',
+        childrenElementType: 'div',
+        arrows: true,
+        autoPlay: true,
+        autoPlayDuration: 2000,
+        keyboardOnAlways: true,
+        hidePrevious: false
+    });
+});
+
+
+$(document).ready(function () {
+    $('.slider').slick({
+        autoplay: true,
+        autoplaySpeed: 1000,
+        speed: 2000,
+        dots: true,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '0%'
+    });
+});
+
+
+$(document).ready(function() {
+  $('.menu-trigger').on('click', function() {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    return false;
+  });
+
+});
+
+
+
+
+$(document).ready(function() {
+	$("span").on('click',function(event){
+	   console.log("sss")
+	   // event.preventDefault();
+	   var linkUrl = $(this).attr('href');
+	   console.log(linkUrl)
+
+	   // Ajaxリクエストを送って自分のところに情報入れる
+	    $.ajax({
+	      url: '/browsing_histories', //どこに遷移したいか(ルーティング)
+	      type: 'POST',
+	      data: {url: linkUrl},  //書き方変更
+	      dataType: 'json'
+	    })
+
+	    window.location.href = linkUrl;
+ });
+});
+
