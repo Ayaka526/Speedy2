@@ -69,6 +69,9 @@ gem 'seed-fu', '~> 2.3'
 #RSS機能実装の為
 gem 'feedjira'
 gem 'twitter-bootstrap-rails'
+#RSSデータを引っ張ってくる為
 gem 'httparty'
 gem 'mini_magick'
 gem 'pry-rails'
+#PV数カウントの為
+gem 'impressionist'

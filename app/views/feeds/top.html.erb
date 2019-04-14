@@ -4,7 +4,7 @@
 				<% @entries.each_with_index do |entry, index|  %>
                         <div style="background-image: url(<%= asset_path("test#{index+1}.jpg")%>)">
                             <p class="slider-text">
-                                <span href="<%= entry.url%>"><%= entry.title %><span><br>
+                                <span class="record-history" href="<%= entry.url%>"><%= entry.title %><span><br>
                                 <%= entry.published.strftime("%Y-%m-%d-%R") %>
                             </p>
                         </div>

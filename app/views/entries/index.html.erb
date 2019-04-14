@@ -3,7 +3,7 @@
   <% @entries.each do |entry| %>
     <div class="panel panel-default">
       <div class="panel-body">
-         <span href="<%= entry.url%>"><%= entry.title %><span> - <i> published <%= entry.published.strftime("%Y-%m-%d-%R") %></i>
+         <span class="record-history" href="<%= entry.url%>"><%= entry.title %><span> - <i> published <%= entry.published.strftime("%Y-%m-%d-%R") %></i>
       </div>
     </div>
   <% end %>

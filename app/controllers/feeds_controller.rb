@@ -8,8 +8,6 @@ class FeedsController < ApplicationController
 
   end
 
-   def show
-   end
 
   def index
      @feeds = Feed.all

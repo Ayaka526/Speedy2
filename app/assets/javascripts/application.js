@@ -62,8 +62,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-	$("span").on('click',function(event){
-	   console.log("sss")
+	$('.record-history').on('click',function(event){
 	   // event.preventDefault();
 	   var linkUrl = $(this).attr('href');
 	   console.log(linkUrl)

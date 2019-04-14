@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   get '/' => 'home#home', as: "home_route"
   get '/feeds/top' => 'feeds#top'
 
-    resources :feeds do
+    resources :feeds, only: [:top]do
    	 member do
-    	 resources :entries, only: [:index, :top]
+    	 resources :entries, only: [:index]
     	end
   end
 
