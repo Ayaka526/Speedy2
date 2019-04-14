@@ -4,6 +4,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
          <span class="record-history" href="<%= entry.url%>"><%= entry.title %><span> - <i> published <%= entry.published.strftime("%Y-%m-%d-%R") %></i>
+         	<button class="stock-icon" id= <%= entry.id %>>STOCK</button>
       </div>
     </div>
   <% end %>

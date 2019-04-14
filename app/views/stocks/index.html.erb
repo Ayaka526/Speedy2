@@ -1,0 +1,10 @@
+
+<div class="container">
+  <% @stocks.each do |stock| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+         <span class="record-history" href="<%= stock.entry.url%>"><%= stock.entry.title %><span> - <i> published <%= stock.entry.published.strftime("%Y-%m-%d-%R") %></i>
+      </div>
+    </div>
+  <% end %>
+</div>

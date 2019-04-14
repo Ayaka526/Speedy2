@@ -67,7 +67,7 @@ $(document).ready(function() {
 	   var linkUrl = $(this).attr('href');
 	   console.log(linkUrl)
 
-	   // Ajaxリクエストを送って自分のところに情報入れる
+	   // Ajaxリクエストを送ってRSSから自分のところに情報入れる
 	    $.ajax({
 	      url: '/browsing_histories', //どこに遷移したいか(ルーティング)
 	      type: 'POST',
@@ -78,4 +78,19 @@ $(document).ready(function() {
 	    window.location.href = linkUrl;
  });
 });
+
+$(document).ready(function() {
+    $('.stock-icon').on('click',function(event){
+
+       // Ajaxリクエストを送って自分のところから自分のところに情報入れる
+        $.ajax({
+          url: '/entry/:id/stock', //どこに遷移したいか(ルーティング)
+          type: 'POST',
+          data: {url: linkUrl, },
+          dataType: 'json'
+        })
+
+ });
+});
+
 
