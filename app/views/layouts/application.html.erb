@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
 
   </head>
 
@@ -38,7 +39,7 @@
                                       <h5><%= link_to "科学", entries_path(id:7),class: "after-signup" %></h5>
                                       <h5><%= link_to "スポーツ", entries_path(id:8),class: "after-signup" %></h5>
                                       <h5><%= link_to "エンタメ", entries_path(id:9),class: "after-signup" %></h5>
-                          <p><%= link_to "Stock list", stock_list_path,class: "after-signup" %></p>
+                          <p><%= link_to "Stock list", stocks_list_path,class: "after-signup" %></p>
                           <p><%= link_to "閲覧履歴",  browsing_histories_path, class: "after-signup" %></p>
                           <p><%= link_to "お問い合わせ",  inquiry_path,class: "after-signup" %></p>
                           <p><%= link_to " ログアウト",destroy_user_session_path, method: :delete, class: "logout glyphicon glyphicon-log-out" %></p>

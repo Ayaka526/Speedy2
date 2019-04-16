@@ -1,12 +1,6 @@
 class Entry < ApplicationRecord
 	belongs_to :feed
-	has_many :stocks, dependent: :destroy
+	has_many :stocks, through: :likes, source: :user
+	 default_scope -> { order(created_at: :desc) }
 
-	 def self.search(search)
-      if search
-        Entry.where(['title LIKE ?', "%#{search}%" ])
-      else
-        Entry.all
-      end
-  end
 end

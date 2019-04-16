@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
 
   def index
     @entry = Entry.find(params[:id])
-    @entries = @feed.entries.order('published desc')
+    @entries = @feed.entries.page(params[:page]).reverse_order
     params[:feeds_id]
   end
 

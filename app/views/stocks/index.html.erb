@@ -3,8 +3,16 @@
   <% @stocks.each do |stock| %>
     <div class="panel panel-default">
       <div class="panel-body">
-         <span class="record-history" href="<%= stock.entry.url%>"><%= stock.entry.title %><span> - <i> published <%= stock.entry.published.strftime("%Y-%m-%d-%R") %></i>
+         <span class="record-history" href="<%= stock.entry.url%>"><%= stock.entry.title %></span> - <i> published <%= stock.entry.published.strftime("%Y-%m-%d-%R") %></i>
+
+         		<% if current_user.already_stocked?(stock.entry) %>
+         			<button class="stock-already" value=<%= stock.entry.id %>, formmethod="delete">★★★</button>
+         		<% else %>
+         			<button class="stock-icon" value=<%= stock.entry.id %>, formmethod="delete">[stock]</button>
+         		<% end %>
+
       </div>
     </div>
   <% end %>
+  <%= paginate @stocks, class: "paginate" %>
 </div>

@@ -75,3 +75,8 @@ gem 'mini_magick'
 gem 'pry-rails'
 #PV数カウントの為
 gem 'impressionist'
+gem 'gon'
+#検索機能の為
+gem 'ransack'
+#ページャ実装の為
+gem 'kaminari','~> 1.1.1'

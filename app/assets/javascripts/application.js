@@ -79,18 +79,41 @@ $(document).ready(function() {
  });
 });
 
-$(document).ready(function() {
-    $('.stock-icon').on('click',function(event){
 
+$(document).ready(function() {
+    $('.stock-already').on('click',function(event){
+        var entryId = $(this).val();
+
+         $(this).text("[stock]");
        // Ajaxリクエストを送って自分のところから自分のところに情報入れる
         $.ajax({
-          url: '/entry/:id/stock', //どこに遷移したいか(ルーティング)
-          type: 'POST',
-          data: {url: linkUrl, },
+          url: `/entry/${entryId}/stocks`, //どこに遷移したいか(ルーティング)
+          type: 'DELETE',
+          data: {
+            'entryid': entryId
+          },
           dataType: 'json'
         })
 
  });
 });
 
+
+$(document).ready(function() {
+    $('.stock-icon').on('click',function(event){
+        var entryId = $(this).val();
+         $(this).text("[already stocked]");
+       // Ajaxリクエストを送って自分のところから自分のところに情報入れる
+        $.ajax({
+          url: `/entry/${entryId}/stocks`, //どこに遷移したいか(ルーティング)
+          type: 'POST',
+          data: {
+            'entryid': entryId
+          },
+          dataType: 'json'
+
+        })
+
+ });
+});
 

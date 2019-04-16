@@ -3,9 +3,18 @@
   <% @entries.each do |entry| %>
     <div class="panel panel-default">
       <div class="panel-body">
-         <span class="record-history" href="<%= entry.url%>"><%= entry.title %><span> - <i> published <%= entry.published.strftime("%Y-%m-%d-%R") %></i>
-         	<button class="stock-icon" id= <%= entry.id %>>STOCK</button>
+         <span class="record-history" href="<%= entry.url%>"><%= entry.title %></span> - <i> published <%= entry.published.strftime("%Y-%m-%d-%R") %></i>
+
+         		<% if current_user.already_stocked?(entry) %>
+         			<button class="stock-already" value=<%= entry.id %>, formmethod="delete">★★★</button>
+         		<% else %>
+         			<button class="stock-icon" value=<%= entry.id %>, formmethod="delete">[stock]</button>
+         		<% end %>
+
       </div>
     </div>
   <% end %>
+  <%= paginate @entries, class: "paginate" %>
 </div>
+
+
