@@ -28,7 +28,7 @@
                     <div id="sp-title">Menu</div>
                       <ul>
                           <p><%= link_to "My page", user_mypage_path(current_user.id),class: "after-signup" %></p>
-                          <p><%= link_to "Ranking", new_user_registration_path,class: "after-signup" %></p>
+                          <p><%= link_to "Ranking", stocks_rank_path,class: "after-signup" %></p>
                           <p class="category-list">Category</p>
                                       <h5><%= link_to "新着ニュース", entries_path(id:1),class: "after-signup" %></h5>
                                       <h5><%= link_to "TOPニュース", entries_path(id:2),class: "after-signup" %></h5>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/feeds/top' => 'feeds#top'
   post '/entry/:id/stocks' =>'stocks#create', as:"stocks_create"
   delete '/entry/:id/stocks' =>'stocks#destroy', as:"stocks_delete"
+  get '/stocks/rank' => 'stocks#rank', as:"stocks_rank"
   get '/stocks' =>'stocks#index', as:"stocks_list"
   get 'inquiry' => 'inquiry#index'              # 入力画面
   post 'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
