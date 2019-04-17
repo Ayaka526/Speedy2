@@ -1,0 +1,26 @@
+current directory: /vagrant/speedy/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.3/ext/bootsnap
+/usr/bin/ruby2.5 -r ./siteconf20190417-11793-1pe1i8u.rb extconf.rb
+creating Makefile
+
+current directory: /vagrant/speedy/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.3/ext/bootsnap
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 82 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /vagrant/speedy/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.3/ext/bootsnap
+make "DESTDIR="
+make: Warning: File 'Makefile' has modification time 82 s in the future
+compiling bootsnap.c
+bootsnap.c: In function ‘bs_cache_path’:
+bootsnap.c:245:39: warning: format ‘%llx’ expects argument of type ‘long long unsigned int’, but argument 5 has type ‘uint64_t {aka long unsigned int}’ [-Wformat=]
+   sprintf(*cache_path, "%s/%02x/%014llx", cachedir, first_byte, remainder);
+                                 ~~~~~~^
+                                 %014lx
+linking shared-object bootsnap/bootsnap.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /vagrant/speedy/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.3/ext/bootsnap
+make "DESTDIR=" install
+make: Warning: File 'Makefile' has modification time 81 s in the future
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20190417-11793-1wxwgpr/bootsnap
+make: warning:  Clock skew detected.  Your build may be incomplete.

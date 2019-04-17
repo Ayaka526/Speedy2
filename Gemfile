@@ -80,3 +80,6 @@ gem 'gon'
 gem 'ransack'
 #ページャ実装の為
 gem 'kaminari','~> 1.1.1'
+#RSS取得のバッジ処理のため
+gem 'whenever', :require => false
+#管理人側にグラフ機能実装の為
