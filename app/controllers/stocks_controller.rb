@@ -1,4 +1,5 @@
-class StocksController < ApplicationController
+class StocksController < ApplicationController3
+
 	def create
 		stock =Stock.new(entry_id: params[:id],user_id: current_user.id)
 		stock.save
