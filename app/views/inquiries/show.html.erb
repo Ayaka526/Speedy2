@@ -1,0 +1,58 @@
+<div class="container">
+	<div class="row">
+					<div class ="name-info">
+					<li class="list-group-item user-name">名前：<%= @user.name %></li>
+					<li class="list-group-item user-email">メール： <%= @user.email %></li>
+				</ul>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+
+			<div class="col-xs-7">
+		<div class="profile-container">
+			<div class="panel panel-info ">
+				<div class="panel-heading">
+					<h5 class="panel-title"><%= @inquiry.title %></h5>
+				</div>
+				<div class="panel-body">
+					<%= @inquiry.body %>
+				</div>
+			</div>
+		</div>
+			</div>
+		</div>
+	<div class="col-xs-4">
+	</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-5">
+
+			<div class ="admin_reply">
+				<%= form_for(@user, :url => {controller: "users", method: "patch", action: "admin_update", user_id: @user.id}) do |f| %>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					問い合わせ返信欄
+					</div>
+					<div class="panel-body">
+						<%= f.text_area :reply %>
+					</div>
+					<div class="panel-footer">
+						<%= f.submit 'send', class: "btn btn-default" %>
+					</div>
+
+				</div>
+				<% end %>
+			</div>
+
+ 		<button type="button" class="btn btn-default"><%= link_to "back", inquiries_path %></button>
+ 	</div>
+ 	<div class="col-xs-7">
+	</div>
+ </div>
+</div>

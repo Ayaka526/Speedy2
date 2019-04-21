@@ -1,19 +1,28 @@
 
 <div class="container">
-  <% @entries.each do |entry| %>
-    <div class="panel panel-default">
-      <div class="panel-body">
-         <span class="record-history" href="<%= entry.url%>"><%= entry.title %></span> - <i> published <%= entry.published.strftime("%Y-%m-%d-%R") %></i>
+   <div class="row">
+        <div class="col-md-7">
 
-         		<% if current_user.already_stocked?(entry) %>
-         			<button class="stock-already" value=<%= entry.id %>, formmethod="delete">★★★</button>
-         		<% else %>
-         			<button class="stock-icon" value=<%= entry.id %>, formmethod="delete">[stock]</button>
-         		<% end %>
+          <% @entries.each do |entry| %>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                 <span class="record-history" href="<%= entry.url%>"><%= entry.title %></span> - <i> published <%= entry.published.strftime("%Y-%m-%d-%R") %></i>
 
-      </div>
-    </div>
-  <% end %>
+                 		<% if current_user.already_stocked?(entry) %>
+                 			<button class="stock-already btn btn-danger btn-xs" value=<%= entry.id %> formmethod="delete">CANCEL</button>
+                 		<% else %>
+                 			<button class="stock-icon btn btn-primary btn-xs" value=<%= entry.id %> formmethod="post">STOCK</button>
+                 		<% end %>
+
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-md-5">
+        </div>
+  </div>
+
   <%= paginate @entries, class: "paginate" %>
 </div>
 

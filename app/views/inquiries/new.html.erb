@@ -1,0 +1,37 @@
+
+<div class="container">
+	<div class="row">
+
+		<%= form_for (@inquiry) do |f| %>
+		  <div class="page-header">
+		    <h1>お問い合わせ</h1>
+		  </div>
+
+		    <% if @inquiry.errors.any? %>
+			  <div class="alert alert-warning">
+			    <ul>
+			      <% @inquiry.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			    </ul>
+			  </div>
+		    <% end %>
+
+			  <table class="table">
+			    <tr>
+			      <th>件名<span class="text-danger">（必須）</span></th>
+			      <td><%= f.text_field :title %></td>
+			    </tr>
+			    <tr>
+			      <th>お問い合わせ内容<span class="text-danger">（必須）</span></th>
+			      <td><%= f.text_area :body %></td>
+			    </tr>
+			  </table>
+
+			  <%= f.submit 'send', class: 'btn btn-primary' %>
+
+		<% end %>
+
+
+	</div>
+</div>

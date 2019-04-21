@@ -1,12 +1,27 @@
 <body class="user-home">
              <!-------MAIN----------->
+	<div class="container-fluid">
+		<div class ="row">
+			<div class="col-md-2 sidevar">
+			</div>
 
-             <section class="home-visual">
-           			<%= image_tag 'banner.jpg',:size => '1438x800' %>
+			<div class="col-lg-7 home-visual">
+           			<%= image_tag 'banner.jpg',:size => '700x750' %>
 				<h1 class="home-title">Speedy</h1>
 				<p class="home-text">you can get information more smart, flexible and efficiently.</p>
 				<ul class="home-button">
 						<%= link_to "Start", feeds_top_path, class: "top-link" %>
 				</ul>
-			</section>
+			</div>
+
+			<div class="col-lg-3">
+			</div>
+		</div>
+	</div>
 </body>
+
+
+
+
+
+
