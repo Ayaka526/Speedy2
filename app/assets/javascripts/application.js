@@ -20,21 +20,6 @@
 // Left Slidebar controls
 
 
-$(document).ready(function(){
-    $("#theTarget").skippr({
-        transition: 'slide',
-        speed: 3000,
-        easing: 'easeOutQuart',
-        navType: 'block',
-        childrenElementType: 'div',
-        arrows: true,
-        autoPlay: true,
-        autoPlayDuration: 2000,
-        keyboardOnAlways: true,
-        hidePrevious: false
-    });
-});
-
 
 $(document).ready(function () {
     $('.slider').slick({
@@ -80,11 +65,13 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
-    $('.stock-already').on('click',function(event){
-        var entryId = $(this).val();
 
-         $(this).text("[stock]");
+    $(document).on('click','.stock-already', function(event){
+        var entryId = $(this).val();
+         $(this).text("STOCK");
+         console.log
+         $(this).removeClass('stock-already');
+         $(this).addClass('stock-icon');
        // Ajaxリクエストを送って自分のところから自分のところに情報入れる
         $.ajax({
           url: `/entry/${entryId}/stocks`, //どこに遷移したいか(ルーティング)
@@ -96,13 +83,14 @@ $(document).ready(function() {
         })
 
  });
-});
 
 
-$(document).ready(function() {
-    $('.stock-icon').on('click',function(event){
+
+    $(document).on('click','.stock-icon', function(event){
         var entryId = $(this).val();
-         $(this).text("[already stocked]");
+         $(this).text("CANCEL");
+         $(this).removeClass('stock-icon');
+         $(this).addClass('stock-already');
        // Ajaxリクエストを送って自分のところから自分のところに情報入れる
         $.ajax({
           url: `/entry/${entryId}/stocks`, //どこに遷移したいか(ルーティング)
@@ -111,9 +99,23 @@ $(document).ready(function() {
             'entryid': entryId
           },
           dataType: 'json'
-
         })
+ });
+
+
+
+    $(document).on('click','.stock-delete', function(event){
+        var entryId = $(this).val();
+       // Ajaxリクエストを送って自分のところから自分のところに情報入れる
+        $.ajax({
+          url: `/entry/${entryId}/stocks`, //どこに遷移したいか(ルーティング)
+          type: 'DELETE',
+          data: {
+            'entryid': entryId
+          },
+          dataType: 'json'
+        })
+        $(this).parent().parent().hide()
 
  });
-});
 

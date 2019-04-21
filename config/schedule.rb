@@ -24,10 +24,12 @@ require File.expand_path(File.dirname(__FILE__) + "/environment")
 
 rails_env = Rails.env.to_sym
 rails_root = Rails.root.to_s
+env :PATH, ENV['PATH']
 
 set :environment, rails_env
 set :output, 'log/cron.log'
 
-every :day, at: ['7:00 am', '12:00 pm', '20:30 pm'] do
-  runner 'news.rake'
+#JSTで左から6:00 am, 12:00 pm, 20:00 pm
+every :day, at: ['21:00 pm', '03:00 am', '11:00 am'] do
+  rake 'news:feeds'
 end

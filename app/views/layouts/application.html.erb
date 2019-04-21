@@ -9,6 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
 
+
   </head>
 
   <body>
@@ -33,7 +34,7 @@
                       <ul>
                           <p><%= link_to "管理人page", user_mypage_path(current_user.id),class: "after-signup" %></p>
                           <p><%= link_to "User一覧",  users_path,class: "after-signup" %></p>
-                          <p><%= link_to "Ranking", stocks_rank_path,class: "after-signup" %></p>
+                          <p><%= link_to "Ranking", stocks_rank_path, class: "after-signup" %></p>
                           <p class="category-list">Category</p>
                                       <h5><%= link_to "新着ニュース", entries_path(id:1),class: "after-signup" %></h5>
                                       <h5><%= link_to "TOPニュース", entries_path(id:2),class: "after-signup" %></h5>
@@ -44,8 +45,9 @@
                                       <h5><%= link_to "科学", entries_path(id:7),class: "after-signup" %></h5>
                                       <h5><%= link_to "スポーツ", entries_path(id:8),class: "after-signup" %></h5>
                                       <h5><%= link_to "エンタメ", entries_path(id:9),class: "after-signup" %></h5>
-                          <p><%= link_to "お問い合わせ",  inquiry_path,class: "after-signup" %></p>
-                          <p><%= link_to " ログアウト",destroy_user_session_path, method: :delete, class: "logout glyphicon glyphicon-log-out" %></p>
+                          <p><%= link_to "Stock list", stocks_list_path,class: "after-signup" %></p>
+                          <p><%= link_to "問い合わせ一覧",inquiries_path, class: "after-signup" %></p>
+                          <p><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "logout glyphicon glyphicon-log-out" %></p>
                       </ul>
                       </ul>
                       </ul>
@@ -77,7 +79,7 @@
                                       <h5><%= link_to "エンタメ", entries_path(id:9),class: "after-signup" %></h5>
                           <p><%= link_to "Stock list", stocks_list_path,class: "after-signup" %></p>
                           <p><%= link_to "閲覧履歴",  browsing_histories_path, class: "after-signup" %></p>
-                          <p><%= link_to "お問い合わせ",  inquiry_path,class: "after-signup" %></p>
+                          <p><%= link_to "お問い合わせ",new_inquiry_path, class: "after-signup" %></p>
                           <p><%= link_to " ログアウト",destroy_user_session_path, method: :delete, class: "logout glyphicon glyphicon-log-out" %></p>
                       </ul>
                       </ul>

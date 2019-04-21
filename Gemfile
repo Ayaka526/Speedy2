@@ -65,6 +65,7 @@ gem 'devise'
 #designの為
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+#仮データ作成の為
 gem 'seed-fu', '~> 2.3'
 #RSS機能実装の為
 gem 'feedjira'
@@ -73,8 +74,6 @@ gem 'twitter-bootstrap-rails'
 gem 'httparty'
 gem 'mini_magick'
 gem 'pry-rails'
-#PV数カウントの為
-gem 'impressionist'
 gem 'gon'
 #検索機能の為
 gem 'ransack'
@@ -82,4 +81,3 @@ gem 'ransack'
 gem 'kaminari','~> 1.1.1'
 #RSS取得のバッジ処理のため
 gem 'whenever', :require => false
-#管理人側にグラフ機能実装の為
