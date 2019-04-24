@@ -26,7 +26,7 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 1000,
         speed: 2000,
-        dots: true,
+        dots: false,
         arrows: false,
         centerMode: true,
         centerPadding: '0%'
@@ -42,6 +42,31 @@ $(document).ready(function() {
   });
 
 });
+
+
+
+$(document).ready(function() {
+  $(function(){
+    $('#search').on('click', function() {
+      $.ajax({
+      url: "http://api.openweathermap.org/data/2.5/weather?q=" + $('#cityname').val() + "&units=metric&appid=" + API_KEY,
+      dataType : 'jsonp',
+      }).done(function (data){
+        //success
+        $('#place').text(data.name);
+        $('#temp_max').text(data.main.temp_max);
+        $('#temp_min').text(data.main.temp_min);
+        $('#humidity').text(data.main.humidity);
+        $('#weather').text(data.weather[0].main);
+        $('img').attr("src","http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+        $('img').attr("alt",data.weather[0].main);
+      }).fail(function (data) {
+         //failed
+         alert('通信に失敗しました。');
+      });
+    });
+  });
+ });
 
 
 
@@ -68,7 +93,7 @@ $(document).ready(function() {
 
     $(document).on('click','.stock-already', function(event){
         var entryId = $(this).val();
-         $(this).text("STOCK");
+         // $(this).text("STOCK");
          console.log
          $(this).removeClass('stock-already');
          $(this).addClass('stock-icon');
@@ -88,7 +113,7 @@ $(document).ready(function() {
 
     $(document).on('click','.stock-icon', function(event){
         var entryId = $(this).val();
-         $(this).text("CANCEL");
+         // $(this).text("CANCEL");
          $(this).removeClass('stock-icon');
          $(this).addClass('stock-already');
        // Ajaxリクエストを送って自分のところから自分のところに情報入れる

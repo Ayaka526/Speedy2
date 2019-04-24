@@ -3,10 +3,11 @@
   <% @histories.each do |history| %>
     <div class="panel panel-default">
       <div class="panel-body">
-         <span href="<%= history.entry.url%>"><%= history.entry.title %><span> - <i> published <%= history.entry.published.strftime("%Y-%m-%d-%R") %></i>
+         <span class="browsing-list" href="<%= history.entry.url%>"><%= history.entry.title %><span> - <i> published <%= history.entry.published.strftime("%Y-%m-%d-%R") %></i>
          <%= link_to 'Destroy',  browsing_history_path(history.id), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </div>
   <% end %>
   <%= paginate @histories, class: "paginate" %>
+
 </div>

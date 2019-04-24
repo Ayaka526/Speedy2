@@ -1,27 +1,19 @@
-<body class="user-home">
-             <!-------MAIN----------->
-	<div class="container-fluid">
-		<div class ="row">
-			<div class="col-md-2 sidevar">
-			</div>
+<body class="home-body">
 
-			<div class="col-lg-7 home-visual">
-           			<%= image_tag 'banner.jpg',:size => '700x750' %>
-				<h1 class="home-title">Speedy</h1>
-				<p class="home-text">you can get information more smart, flexible and efficiently.</p>
-				<ul class="home-button">
-						<%= link_to "Start", feeds_top_path, class: "top-link" %>
-				</ul>
-			</div>
+			<nav class="layer">
+			    <ul class="home-contents">
+			        <li class="home-list"><%= link_to "sign up", new_user_registration_path %></li>
+              		<li class="home-list"><%= link_to "log in",  new_user_session_path %></li>
+              		<li class="home-list"><%= link_to "what's speedy", home_about_path %></li>
+			    </ul>
+			</nav>
 
-			<div class="col-lg-3">
-			</div>
-		</div>
-	</div>
+			<section class="home page layer">
+				<h1 class= "home-title">Speedy</h1>
+			</section>
+
+
 </body>
-
-
-
 
 
 

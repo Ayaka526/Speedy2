@@ -1,3 +1,28 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+	.mypage-sidevar{
+        background-color: gold;
+        left:0;
+        position:fixed;
+        display:block;
+        padding:5px 0;
+        text-align:left;
+        width:25%;
+        height:1000px;
+    }
+    .mypage-category{
+        color: #000;
+        margin:0 auto;
+        padding:20px;
+    }
+    .profile-name{
+        font-family: "Phosphate-Solid", "Phosphate Solid";
+        font-size:50px;
+    }
+    .account-info{
+        font-family: "Phosphate-Solid", "Phosphate Solid";
+        margin-top:50px;
+    }

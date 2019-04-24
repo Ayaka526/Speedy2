@@ -1,28 +1,47 @@
 <div class="top-container">
     <div class="row">
-        <div class="col-md-6 left-circle">
-            <div class="harf_field">
-                <div class="slider">
-    				<% @entries.each_with_index do |entry, index|  %>
-                            <div style="background-image: url(<%= asset_path("test#{index+1}.jpg")%>)">
-                                <p class="slider-text">
-                                    <span class="record-history" href="<%= entry.url%>"><%= entry.title %></span><br>
-                                    <%= entry.published.strftime("%Y-%m-%d-%R") %>
-                                </p>
+            <div class="col-md-4 top-left">
+                <div class="slide-design">
+                        <div class="slider">
+                  				<% @entries.each_with_index do |entry, index|  %>
+                                          <div style="background-image: url(<%= asset_path("honey#{index+1}.png")%>)">
+                                              <p class="slider-text">
+                                                  <span class="record-history" href="<%= entry.url%>"><%= entry.title %></span><br>
+                                                  <%= entry.published.strftime("%Y-%m-%d-%R") %>
+                                              </p>
+                                          </div>
+                          <% end %>
+            			     </div>
+                    <div class="top-message">
+                        Today's
+                         <br>News
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 top-middle">
+                    <div class="top-category">
+                        <div id="myHexGrid">
+                          <div class="hexCrop">
+                            <div class="hexGrid">
+                               <div class="hex"></div>
+                              <div class="hex int">inter</div>
+                               <div class="hex dom">domes</div>
+                               <div class="hex"></div>
+                              <div class="hex"></div>
+                              <div class="hex sci">science</div>
+                              <div class="hex ent">enter<br>taiment</div>
+                              <div class="hex spo">sports</div>
+                              <div class="hex top"><%= link_to "top", entries_path(id:2) %></div>
+                              <div class="hex eco">economy</div>
                             </div>
-                    <% end %>
-    			</div>
+                          </div>
+                        </div>
+                    </div>
+                   <div class="category-title">Category</div>
             </div>
-            <div class="topleft-message">
-                Today's News
-            </div>
-        </div>
-        <div class="col-md-6">
 
-        </div>
+            <div class="col-md-3 top-right">
+            </div>
     </div>
 </div>
-
-
-
 
