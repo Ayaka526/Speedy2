@@ -4,110 +4,13 @@
     <title>Speedy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
-
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
   </head>
 
   <body>
-
-
-
-     <!-------HEADER-------->
-      <header>
-
-        <nav class="header-nav">
-          <section class="header-logo"><%= image_tag 'speedy.jpg',:size =>'130x70' %></section>
-          <div class="header-list">
-            <ul class="clearfix">
-
-
-
-
-              <% if current_user.try(:admin?) %>
-
-              <div id="sp-menu">
-                    <div id="sp-title">Menu</div>
-                      <ul>
-                          <p><%= link_to "管理人page", user_mypage_path(current_user.id),class: "after-signup" %></p>
-                          <p><%= link_to "User一覧",  users_path,class: "after-signup" %></p>
-                          <p><%= link_to "Ranking", stocks_rank_path, class: "after-signup" %></p>
-                          <p class="category-list">Category</p>
-                                      <h5><%= link_to "新着ニュース", entries_path(id:1),class: "after-signup" %></h5>
-                                      <h5><%= link_to "TOPニュース", entries_path(id:2),class: "after-signup" %></h5>
-                                      <h5><%= link_to "国際ニュース", entries_path(id:3),class: "after-signup" %></h5>
-                                      <h5><%= link_to "国内ニュース", entries_path(id:4),class: "after-signup" %></h5>
-                                      <h5><%= link_to "経済", entries_path(id:5),class: "after-signup" %></h5>
-                                      <h5><%= link_to "IT", entries_path(id:6),class: "after-signup" %></h5>
-                                      <h5><%= link_to "科学", entries_path(id:7),class: "after-signup" %></h5>
-                                      <h5><%= link_to "スポーツ", entries_path(id:8),class: "after-signup" %></h5>
-                                      <h5><%= link_to "エンタメ", entries_path(id:9),class: "after-signup" %></h5>
-                          <p><%= link_to "Stock list", stocks_list_path,class: "after-signup" %></p>
-                          <p><%= link_to "問い合わせ一覧",inquiries_path, class: "after-signup" %></p>
-                          <p><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "logout glyphicon glyphicon-log-out" %></p>
-                      </ul>
-                      </ul>
-                      </ul>
-                </div>
-
-                <div id="hm-icon">
-                     <a class="menu-trigger" href="#">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                     </a>
-                </div>
-
-              <% elsif user_signed_in? %>
-                <div id="sp-menu">
-                    <div id="sp-title">Menu</div>
-                      <ul>
-                          <p><%= link_to "My page", user_mypage_path(current_user.id),class: "after-signup" %></p>
-                          <p><%= link_to "Ranking", stocks_rank_path,class: "after-signup" %></p>
-                          <p class="category-list">Category</p>
-                                      <h5><%= link_to "新着ニュース", entries_path(id:1),class: "after-signup" %></h5>
-                                      <h5><%= link_to "TOPニュース", entries_path(id:2),class: "after-signup" %></h5>
-                                      <h5><%= link_to "国際ニュース", entries_path(id:3),class: "after-signup" %></h5>
-                                      <h5><%= link_to "国内ニュース", entries_path(id:4),class: "after-signup" %></h5>
-                                      <h5><%= link_to "経済", entries_path(id:5),class: "after-signup" %></h5>
-                                      <h5><%= link_to "IT", entries_path(id:6),class: "after-signup" %></h5>
-                                      <h5><%= link_to "科学", entries_path(id:7),class: "after-signup" %></h5>
-                                      <h5><%= link_to "スポーツ", entries_path(id:8),class: "after-signup" %></h5>
-                                      <h5><%= link_to "エンタメ", entries_path(id:9),class: "after-signup" %></h5>
-                          <p><%= link_to "Stock list", stocks_list_path,class: "after-signup" %></p>
-                          <p><%= link_to "閲覧履歴",  browsing_histories_path, class: "after-signup" %></p>
-                          <p><%= link_to "お問い合わせ",new_inquiry_path, class: "after-signup" %></p>
-                          <p><%= link_to " ログアウト",destroy_user_session_path, method: :delete, class: "logout glyphicon glyphicon-log-out" %></p>
-                      </ul>
-                      </ul>
-                      </ul>
-                </div>
-
-                <div id="hm-icon">
-                     <a class="menu-trigger" href="#">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                     </a>
-                </div>
-
-
-             <% else %>
-              <li class="header-item"><%= link_to "sign up", new_user_registration_path, class: "header-signup" %></li>
-              <li class="header-item"><%= link_to "log in",  new_user_session_path, class: "header-login" %></li>
-              <li class="header-item"><%= link_to "home",  home_route_path, class: "header-home" %></li>
-
-            <% end %>
-
-            </ul>
-          </div>
-        </nav>
-      </header>
-
-
-    <%= yield %>
+  <%= yield %>
   </body>
 </html>

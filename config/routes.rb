@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :inquiries, only: [:new, :create, :index, :show, :search]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/' => 'home#home', as: "home_route"
+  get '/about' => 'home#about', as: "home_about"
   get '/feeds/top' => 'feeds#top'
   post '/entry/:id/stocks' =>'stocks#create', as:"stocks_create"
   delete '/entry/:id/stocks' =>'stocks#destroy', as:"stocks_delete"
