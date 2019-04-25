@@ -1,37 +1,36 @@
 
 <div class="container">
 	<div class="row">
+		<div class="new-inquire">
 
-		<%= form_for (@inquiry) do |f| %>
-		  <div class="page-header">
-		    <h1>お問い合わせ</h1>
-		  </div>
-
-		    <% if @inquiry.errors.any? %>
-			  <div class="alert alert-warning">
-			    <ul>
-			      <% @inquiry.errors.full_messages.each do |message| %>
-			        <li><%= message %></li>
-			      <% end %>
-			    </ul>
+			<%= form_for (@inquiry) do |f| %>
+			  <div class="page-header">
+			    <h1 class="inquire-title"><i class="far fa-comment"></i>  Required Field</h1>
 			  </div>
-		    <% end %>
 
-			  <table class="table">
-			    <tr>
-			      <th>件名<span class="text-danger">（必須）</span></th>
-			      <td><%= f.text_field :title %></td>
-			    </tr>
-			    <tr>
-			      <th>お問い合わせ内容<span class="text-danger">（必須）</span></th>
-			      <td><%= f.text_area :body %></td>
-			    </tr>
-			  </table>
+			    <% if @inquiry.errors.any? %>
+				  <div class="alert alert-warning">
+				    <ul>
+				      <% @inquiry.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				    </ul>
+				  </div>
+			    <% end %>
 
-			  <%= f.submit 'send', class: 'btn btn-primary' %>
+				  <table class="table">
+				    <tr>
+				      <th class="inquire-contents">Subject<span class="text-danger"> * </span></th>
+				      <td><%= f.text_field :title %></td>
+				    </tr>
+				    <tr>
+				      <th class="inquire-contents">Enter Your Message<span class="text-danger"> * </span></th>
+				      <td><%= f.text_area :body, size: "70x4" %></td>
+				    </tr>
+				  </table>
 
-		<% end %>
-
-
+				<%= f.submit 'SEND', class: 'btn btn-warning btn-lg btn-block' %>
+			<% end %>
+		</div>
 	</div>
 </div>

@@ -1,32 +1,70 @@
 
-<div class="container-fluid">
-	<div class="row">
-				<h1 class="profile-name">My page</h1>
-					<% if @user.id == current_user.id || current_user.try(:admin?)%>
-						<div class ="account-info">
-							<li class="list-group-item fullname">User Name：<%= @user.name %></li>
-							<li class="list-group-item email">Mail Address： <%= @user.email %></li>
-						</div>
-							<div class="edit-button"><%= link_to "Edit",edit_user_path(@user),class:"col-xs-6 btn btn-default" %></div>
-							<div class="reset-button"><%= link_to "Reset / Delete",edit_user_registration_path,class:"col-xs-6 btn btn-default" %></div>
-					<% end %>
-
-					<% if @user.reply.present? %>
-						<div class="panel panel-info ">
-							<div class="panel-heading">
-								<h5 class="panel-title">問い合わせ</h5>
-							</div>
-							<div class="panel-body"><%= @user.reply %></div>
-						</div>
-					<% end %>
-			</ul>
+<div class="mypage-container">
+	<div class="mypage-top">
+	  <div class="mypage-title"><i class="far fa-sun fa-2x"></i>  My page</div>
+	  <div class="mypage-sub">you can check & edit your accounts.</div>
 	</div>
+		<div class="mypage-contents">
+			<% if @user.id == current_user.id || current_user.try(:admin?)%>
+				<div class ="account-info">
+					<ul>
+						<li class="fullname">User Name：<%= @user.name %></li>
+						<li class="email">Mail Address： <%= @user.email %></li>
+					</ul>
+				</div>
+			<% end %>
+		</div>
+		<div class="mypage-list">
+
+			<div class="col">
+				<% if @user.id == current_user.id || current_user.try(:admin?)%>
+						<div class="edit-button"><i class="fas fa-edit fa-4x"></i>
+						<br><%= link_to "Edit",edit_user_path(@user) %></div>
+				<% end %>
+			</div>
+			<div class="col">
+				<% if @user.id == current_user.id || current_user.try(:admin?)%>
+						<div class="reset-button"><i class="fas fa-user-minus fa-4x"></i>
+						<br><%= link_to "Reset / Delete",edit_user_registration_path %></div>
+				<% end %>
+			</div>
+			<div class="col">
+					<div class="stock-button"><i class="fas fa-paperclip fa-4x"></i>
+					<br><%= link_to "Stock list", stocks_list_path %></div>
+			</div>
+			<div class="col">
+					<div class="browsing-button"><i class="fas fa-book-open fa-4x"></i>
+					<br><%= link_to "Browsing History",  browsing_histories_path %></div>
+			</div>
+		</div>
+			<div class="mypage-reply">
+				<% if @user.reply.present? %>
+						<div class="reply-title">Reply</div>
+						<div class="reply-body"><%= @user.reply %></div>
+				<% end %>
+			</div>
+
+			<div class="mypage-inquired">
+				<table class= "table table-hover table-inverse table-bordered">
+            		<thead>
+            		  <tr>
+              			  <th class ="user-name col-xs-2">名前</th>
+               			  <th class ="inquiry-title col-xs-2">件名</th>
+                 		　<th class ="inquiry-body col-xs-5">本文</th>
+                 		　<th class ="show-button col-xs-1">詳細</th>
+              		　</tr>
+          		　  </thead>
+
+           		　　 <tbody>
+						<% @inquiries.each do |inquiry| %>
+		               		<tr class ="inquiry-item">
+		                   		<td class="name-user"><%= inquiry.user.name %></td>
+		                    	<td class="title-inquiry"><%= inquiry.title %></td>
+								<td class="body-inquiry"><%= inquiry.body%></td>
+								<td class="button-show btn btn-default"><%=link_to "詳細",  inquiry_path(inquiry.id)%></td>
+		                    </tr>
+		                <% end %>
+           			 </tbody>
+      		　 	</table>
+			</div>
 </div>
-
-
-
-
-
-
-
-
