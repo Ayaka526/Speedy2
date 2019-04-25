@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	def mypage
 		@user = User.find(params[:user_id])
+		@inquiries = Inquiry.search(params[:search])
 	end
 
 	def edit

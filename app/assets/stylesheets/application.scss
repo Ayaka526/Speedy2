@@ -43,6 +43,11 @@ body{
 .container-fluid{
         position:relative;
         margin:0 auto;
+    }
+
+.container{
+        position:relative;
+        margin:0 auto;
         height:1300px;
     }
 
@@ -200,11 +205,6 @@ body{
      }
 
 /* ------------INDEX (CATEGORY)------------- */
-    .container{
-        position:relative;
-        margin:0 auto;
-        height:1300px;
-    }
     .stock-icon{
         color: black;
     }
@@ -244,10 +244,9 @@ body{
         }
 
     .index-middle{
-       margin-left:180px;
+       margin-left:320px;
        margin-top:50px;
-       width: 65%
-
+       width: 50%
     }
     .paginate{
         color:gold;
@@ -272,7 +271,7 @@ body{
 
     /* ------------INDEX (SLIDER)------------- */
     .slider{
-        width: 730px;
+        width: 710px;
         height: 100px;
         margin: 0 auto;
         margin-bottom:30px;

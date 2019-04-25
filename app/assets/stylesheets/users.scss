@@ -2,27 +2,103 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-	.mypage-sidevar{
+    .mypage-container{
         background-color: gold;
-        left:0;
-        position:fixed;
-        display:block;
-        padding:5px 0;
-        text-align:left;
-        width:25%;
-        height:1000px;
-    }
-    .mypage-category{
-        color: #000;
+        position:relative;
         margin:0 auto;
-        padding:20px;
+        height:1300px;
+        padding:50px;
     }
-    .profile-name{
-        font-family: "Phosphate-Solid", "Phosphate Solid";
-        font-size:50px;
+
+    .mypage-list {
+        display: flex;/*横並び*/
+        padding:50px;
+        margin:0 auto;
+        background-color: gold;
     }
-    .account-info{
+
+    .col {
+      width: 100%;
+      text-align: center;
+      background-color: #fcc800;
+      margin-right:10px;
+      padding:50px;
+      box-shadow:0px 0px 19px 5px #736f06;
+      font-size:17px;
+      border-radius: 10px;
+    }
+
+    .mypage-top{
+        background-color: #222;
+        margin-left:50px;
+        padding:30px;
+        border-radius: 10px;
+        width:35%;
+    }
+
+    .mypage-title{
+        font-size:30px;
+        text-align:left;
         font-family: "Phosphate-Solid", "Phosphate Solid";
-        margin-top:50px;
+        color: #fff;
+    }
+    .mypage-sub{
+        font-size:15px;
+        text-align:right;
+        color: #fff;
+    }
+
+	.mypage-contents{
+    }
+
+    .account-info {
+        margin-left:50px;
+        margin-top:20px;
+        border-radius: 5px;
+        padding:15px;
+        width:50%;
+        border-bottom: solid 2px #000;
+    }
+        .account-info li{
+            font-family: "Phosphate-Solid", "Phosphate Solid";
+            list-style: none;
+            font-size:20px;
+        }
+
+    .mypage-reply {
+        position: relative;
+        margin: 50px;
+        padding: 20px;
+        border: solid 4px #222;
+        border-radius: 8px;
+    }
+    .mypage-reply .reply-title {
+        position: absolute;
+        display: inline-block;
+        top: -13px;
+        left: 10px;
+        padding: 0 9px;
+        line-height: 1;
+        font-size: 20px;
+        color: #222;
+        font-weight: bold;
+    }
+    .mypage-reply .reply-body {
+        margin: 0;
+        padding: 0;
+    }
+
+/*-----------------EDIT-----------------------*/
+
+    .new-inquire{
+        background-color:#fff;
+        margin:100px;
+        padding:50px;
+    }
+    .inquire-title{
+        font-family: "Phosphate-Solid", "Phosphate Solid";
+    }
+    .inquire-contents{
+        margin-top:30px;
+        font-size:20px
     }
