@@ -19,7 +19,6 @@
 
 a {
     color: #000;
-    font-family: "Phosphate-Solid", "Phosphate Solid";
     text-decoration: none;
     }
 
@@ -37,7 +36,7 @@ a {
 }
 
 body{
-  background: #222;
+  background: dimgray;
 }
 
 .container-fluid{
@@ -53,9 +52,24 @@ body{
 
 
 /* ------------LOGIN,SIGN UP------------- */
+    .back-button{
+        color:#fff;
+        margin-left:20px;
+        font-size:20px;
+        font-family: "Phosphate-Solid", "Phosphate Solid";
+        width:30px;
+    }
+        .back-button:hover{
+            text-decoration: none;
+            color:#222;
+        }
+
+    .back-contents{
+        margin-top:30px;
+    }
+
     .login-body {
         background-color: #222;
-        font-family: "Phosphate-Solid", "Phosphate Solid"; font-weight: 700px;
     }
 
     .login-main {
@@ -72,7 +86,6 @@ body{
         padding-top: 75px;
         margin-bottom:20px;
         color: black;
-        font-family: "Phosphate-Solid", "Phosphate Solid";
         font-weight: bold;
         font-size: 55px;
     }
@@ -93,7 +106,7 @@ body{
         margin-left: 46px;
         text-align: center;
         margin-bottom: 10px;
-        font-family: "Phosphate-Solid", "Phosphate Solid";
+        font-family: "Verdana";
     }
 
     .mail {
@@ -110,7 +123,7 @@ body{
         margin-bottom: 10px;
         margin-left: 46px;
         text-align: center;
-        font-family: "Phosphate-Solid", "Phosphate Solid";
+        font-family: "Verdana";
 
     }
 
@@ -126,8 +139,7 @@ body{
         outline: none;
         box-sizing: border-box;
         margin-left: 46px;
-        text-align: center;
-        font-family: "Phosphate-Solid", "Phosphate Solid";
+        font-family: "Verdana";
     }
 
     .pass-confirm{
@@ -142,8 +154,8 @@ body{
         outline: none;
         box-sizing: border-box;
         margin-left: 46px;
-        text-align: center;
-        font-family: "Phosphate-Solid", "Phosphate Solid";
+        font-family: "Verdana";
+
     }
 
     .send {
@@ -152,21 +164,18 @@ body{
         background-color: #808080;
         border: 10px;
         padding: 10px 40px;
-        font-family: "Phosphate-Solid", "Phosphate Solid";
         margin-left: 35%;
         font-size: 13px;
         border-radius: 10px;
     }
 
     .log-in{
-        font-family: "Phosphate-Solid", "Phosphate Solid";
         margin-left: 44%;
         font-size:12px;
         padding-top: 15px;
     }
     .forgot{
-        font-family: "Phosphate-Solid", "Phosphate Solid";
-        margin-left: 32%;
+        margin-left: 36%;
         font-size:12px;
     }
 
@@ -178,7 +187,6 @@ body{
      }
 
      .sign-up{
-        font-family: "Phosphate-Solid", "Phosphate Solid";
         margin-left: 44%;
         font-size:12px;
         padding-top: 15px;
@@ -188,7 +196,6 @@ body{
         padding-top: 30px;
         margin-bottom:15px;
         color: black;
-        font-family: "Phosphate-Solid", "Phosphate Solid";
         font-weight: bold;
         font-size: 50px;
     }
@@ -204,12 +211,24 @@ body{
         border-radius: 30px;
      }
 
+    .password-attention{
+        font-size:10px;
+    }
+    .password-title{
+        font-size:15px;
+        font-family: "Verdana";
+    }
+
 /* ------------INDEX (CATEGORY)------------- */
     .stock-icon{
         color: black;
     }
     .stock-already{
         color :red;
+    }
+
+    .index-bg{
+        background: repeating-linear-gradient(90deg, #949494, #949494 3px, #808080 , #808080 10px);
     }
 
     .index-left{
@@ -221,18 +240,29 @@ body{
         text-align:left;
         float:right;
         width:20%;
+        height:1000px;
     }
 
         .index-category{
             color: #000;
             margin:0 auto;
             padding:20px;
+            font-family: "Phosphate-Solid", "Phosphate Solid";
         }
+            .index-category a:hover{
+                text-decoration: none;
+                color: #fff;
+            }
 
-        .index-title{
+        .index-title a{
             font-family: "Phosphate-Solid", "Phosphate Solid";
             font-size:50px;
         }
+            .index-title a:hover{
+                text-decoration: none;
+                transition: 0.1s;
+                color: #fff;
+            }
 
         .index-list{
             margin:0 auto;
@@ -241,16 +271,31 @@ body{
             padding-bottom:30px;
             margin-top: 100px;
             font-size:17px;
+             font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
         }
+            .index-list a:hover{
+                text-decoration: none;
+                color:#fff;
+            }
 
     .index-middle{
        margin-left:320px;
-       margin-top:50px;
-       width: 50%
+       padding-top:50px;
+       width: 50%;
+       background-color: rgba(105,105,105,0.6);
     }
-    .paginate{
-        color:gold;
-        size:30px;
+         .pagenate{
+            color: #fff;
+            size:30px;
+            text-decoration: none;
+            border-bottom:solid 3px #222;
+        }
+
+    .panel-body:hover{
+       outline: 10px solid rgba(69,69,69,0.7);
+       color:#000;
+       cursor: pointer;
+       cursor: hand;
     }
 
     .index-right{
@@ -271,36 +316,44 @@ body{
 
     /* ------------INDEX (SLIDER)------------- */
     .slider{
-        width: 710px;
+        width: 680px;
         height: 100px;
         margin: 0 auto;
         margin-bottom:30px;
-        background-color: rgba(0,0,0,0.8);
+       font-weight: bold;
     }
+        .slider:hover{
+            cursor: pointer;
+            cursor: hand;
+            background-color:#c4c4c4;
+        }
 
     .slider-text{
-        width: 700px;
+        width: 680px;
         height: 100px;
         padding:20px;
         text-align: center;
-        font-size: 16px;
-        font-family: "Telugu Sangam MN";; font-weight: bolder;
+        font-size: 20px;
         color:#000;
     }
 
     /* ------------INDEX (SEARCH)------------- */
 
-
-    .search-box {
-         margin-top:30px;
-    }
     .search-title{
-        font-family: "Phosphate-Solid", "Phosphate Solid";
+        font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
     }
+
+    .search-container {
+         margin-top:30px;
+         margin-left:20px;
+    }
+        .search-box:hover{
+            cursor: pointer;
+            cursor: hand;
+        }
 
     .greeting{
         color:#fff;
-        font-family: "Phosphate-Solid", "Phosphate Solid";
         font-size:20px;
         margin-top:25px;
         border-bottom: solid 2px #fff;
@@ -310,17 +363,23 @@ body{
     /* ------------INDEX (WEATHER)------------- */
     .weather-box{
         color:#000;
-        margin-top:50px;
-        margin-left:20px;
-        margin-right:20px;
-        padding-bottom:50px;
+        padding:25px;
+        margin:10px 0;
+        background-color: rgba(105,105,105,0.6)
     }
     .weather-title{
-        font-family: "Phosphate-Solid", "Phosphate Solid";
         color:#fff;
+        font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
     }
+    .search-title{
+         font-family: "Phosphate-Solid", "Phosphate Solid";
+    }
+        .search-input:hover{
+            cursor: pointer;
+            cursor: hand;
+        }
+
     #cityname{
-        font-family: "Phosphate-Solid", "Phosphate Solid";
         color:#222;
         border:0;
         font-size:1.4em;
@@ -330,18 +389,9 @@ body{
         border-radius: 3px;
     }
     .weather-list{
-        font-family: "Phosphate-Solid", "Phosphate Solid";
         color:#fff;
         font-size:16px;
         margin-top:8px;
-    }
-
-    .weather-descroption{
-        float: left;
-        margin-right: 10px;
-    }
-    #icon{
-        overflow: hidden;
     }
 
      /* ------------INDEX (RANKING)------------- */
@@ -349,6 +399,10 @@ body{
     .ranking-index{
         color:#000;
     }
+        .ranking-index ul:hover{
+            background-color:#c4c4c4;
+        }
+
     .raniking-box{
         color: black;
         border-left: solid 10px gold;
@@ -360,16 +414,30 @@ body{
         margin-right:20px;
         margin-bottom:0;
     }
+
     .ranking-title{
-        font-family: "Phosphate-Solid", "Phosphate Solid";
         color:#fff;
         margin-left:20px;
+        font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
     }
+
+        .stock-ranking:hover{
+            cursor: pointer;
+            cursor: hand;
+        }
+
     .published{
         font-size:12px;
         color:#222;
     }
     .fa-bookmark{
         padding:5px;
+    }
+
+    .rnk{
+        color:#000;
+        padding:15px;
+        background-color: rgba(105,105,105,0.6);
+        margin-bottom:15px;
     }
 

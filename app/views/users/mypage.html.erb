@@ -1,5 +1,5 @@
 
-<div class="mypage-container">
+<div class="mypage-container index-bg">
 	<div class="mypage-top">
 	  <div class="mypage-title"><i class="far fa-sun fa-2x"></i>  My page</div>
 	  <div class="mypage-sub">you can check & edit your accounts.</div>
@@ -14,57 +14,49 @@
 				</div>
 			<% end %>
 		</div>
-		<div class="mypage-list">
+		<div class="mypage-list index-bg">
+			<% if @user.id == current_user.id || current_user.try(:admin?)%>
 
-			<div class="col">
-				<% if @user.id == current_user.id || current_user.try(:admin?)%>
-						<div class="edit-button"><i class="fas fa-edit fa-4x"></i>
-						<br><%= link_to "Edit",edit_user_path(@user) %></div>
-				<% end %>
-			</div>
-			<div class="col">
-				<% if @user.id == current_user.id || current_user.try(:admin?)%>
-						<div class="reset-button"><i class="fas fa-user-minus fa-4x"></i>
-						<br><%= link_to "Reset / Delete",edit_user_registration_path %></div>
-				<% end %>
-			</div>
-			<div class="col">
-					<div class="stock-button"><i class="fas fa-paperclip fa-4x"></i>
-					<br><%= link_to "Stock list", stocks_list_path %></div>
-			</div>
-			<div class="col">
-					<div class="browsing-button"><i class="fas fa-book-open fa-4x"></i>
-					<br><%= link_to "Browsing History",  browsing_histories_path %></div>
-			</div>
+				<div class="col">
+					<%= link_to edit_user_path(@user) do %>
+						<div class="mp-button"><i class="fas fa-pen-square fa-4x"></i><br>
+						<div class="mp-title">EDIT</div>
+						</div>
+					<% end %>
+				</div>
+
+				<div class="col">
+					<%= link_to edit_user_registration_path do %>
+						<div class="mp-button"><i class="fas fa-user-minus fa-4x"></i><br>
+						<div class="mp-title">Reset / Delete</div>
+						</div>
+					<% end %>
+				</div>
+
+				<div class="col">
+					<%= link_to stocks_list_path do %>
+						<div class="mp-button"><i class="fas fa-paperclip fa-4x"></i><br>
+						<div class="mp-title">Stock list</div>
+						</div>
+					<% end %>
+				</div>
+
+				<div class="col">
+					<%= link_to browsing_histories_path do %>
+						<div class="mp-button"><i class="fas fa-book-open fa-4x"></i><br>
+						<div class="mp-title">Browsing History</div>
+						</div>
+					<% end %>
+				</div>
+
+			<% end %>
 		</div>
-			<div class="mypage-reply">
-				<% if @user.reply.present? %>
+			<% if @user.reply.present? %>
+				<div class="mypage-reply">
 						<div class="reply-title">Reply</div>
 						<div class="reply-body"><%= @user.reply %></div>
-				<% end %>
-			</div>
+				</div>
+			<% end %>
+		<%= link_to "Back", :back, class:"back-button" %>
 
-			<div class="mypage-inquired">
-				<table class= "table table-hover table-inverse table-bordered">
-            		<thead>
-            		  <tr>
-              			  <th class ="user-name col-xs-2">名前</th>
-               			  <th class ="inquiry-title col-xs-2">件名</th>
-                 		　<th class ="inquiry-body col-xs-5">本文</th>
-                 		　<th class ="show-button col-xs-1">詳細</th>
-              		　</tr>
-          		　  </thead>
-
-           		　　 <tbody>
-						<% @inquiries.each do |inquiry| %>
-		               		<tr class ="inquiry-item">
-		                   		<td class="name-user"><%= inquiry.user.name %></td>
-		                    	<td class="title-inquiry"><%= inquiry.title %></td>
-								<td class="body-inquiry"><%= inquiry.body%></td>
-								<td class="button-show btn btn-default"><%=link_to "詳細",  inquiry_path(inquiry.id)%></td>
-		                    </tr>
-		                <% end %>
-           			 </tbody>
-      		　 	</table>
-			</div>
 </div>

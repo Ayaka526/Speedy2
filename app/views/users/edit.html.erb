@@ -1,22 +1,25 @@
 
-<div class="container">
-	<div class=""
-		<h2 class="profile-name">EDIT</h2>
+<div class="container index-bg">
+	<div class="row">
+		<div class="edit-container">
+			<h1 class="edit-title">
+				<i class="fas fa-user-cog"></i>  EDIT
+			</h1>
 
-			<%= form_for(@user) do |f| %>
-				<table class="table">
-					<tbody>
+				<%= form_for(@user) do |f| %>
+					<table class="table">
 						<tr>
-							<th>Name</th>
-							<th><%= f.text_field :name, autofocus: true, class:"" %></th>
+							<th class="edit-contents">Name</th>
+							<td><%= f.text_field :name, autofocus: true, size: "40x4" %></td>
 						</tr>
 						<tr>
-							<th>E-mail</th>
-							<th><%= f.text_field :email, autofocus: true, class:"" %></th>
+							<th class="edit-contents">E-mail</th>
+							<td><%= f.text_field :email, autofocus: true, size: "40x4"%></td>
 						</tr>
-					</tbody>
-				</table>
-			<%= f.submit "update", class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
-			<% end %>
-
+					</table>
+				<%= f.submit "update", class:"btn btn-warning btn-lg btn-block" %>
+				<% end %>
+		</div>
+		 <%= link_to "Back", :back, class:"back-button" %>
+	</div>
 </div>

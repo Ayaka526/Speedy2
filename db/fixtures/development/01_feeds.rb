@@ -1,54 +1,50 @@
   Feed.seed do |s|
-  s.name ="新着news"
-  s.url ="https://news.yahoo.co.jp/byline/rss/all.xml"
-  s.description ="新着news"
+  s.name ="Today"
+  s.url ="http://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+  s.description ="Today"
+end
+
+  Feed.seed do |s|
+  s.name ="Business"
+  s.url ="http://rss.nytimes.com/services/xml/rss/nyt/Business.xml"
+  s.description ="Business"
 end
 
 Feed.seed do |s|
-  s.name ="TOPnews"
-  s.url ="https://news.yahoo.co.jp/pickup/rss.xml"
-  s.description ="TOPnews"
+  s.name ="Economy"
+  s.url ="http://rss.nytimes.com/services/xml/rss/nyt/Economy.xml"
+  s.description ="Economy"
 end
 
 Feed.seed do |s|
-  s.name ="国際news"
-  s.url ="https://news.yahoo.co.jp/pickup/world/rss.xml"
-  s.description ="国際news"
+  s.name ="Technology"
+  s.url ="http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"
+  s.description ="Technology"
 end
 
 Feed.seed do |s|
-  s.name ="国内news"
-  s.url ="https://news.yahoo.co.jp/pickup/domestic/rss.xml"
-  s.description ="国内news"
+  s.name ="Science"
+  s.url ="http://rss.nytimes.com/services/xml/rss/nyt/Science.xml"
+  s.description ="Science"
 end
 
 Feed.seed do |s|
-  s.name ="経済"
-  s.url ="https://news.yahoo.co.jp/pickup/economy/rss.xml"
-  s.description ="経済"
+  s.name ="Environment"
+  s.url ="http://rss.nytimes.com/services/xml/rss/nyt/Environment.xml"
+  s.description ="Environment"
 end
 
 Feed.seed do |s|
-  s.name ="IT"
-  s.url ="https://news.yahoo.co.jp/pickup/computer/rss.xml"
-  s.description ="IT"
+  s.name ="Sports"
+  s.url ="http://rss.nytimes.com/services/xml/rss/nyt/Sports.xml"
+  s.description ="Sports"
 end
 
 Feed.seed do |s|
-  s.name ="科学"
-  s.url ="https://news.yahoo.co.jp/pickup/science/rss.xml"
-  s.description ="科学"
+  s.name ="Media"
+  s.url ="http://rss.nytimes.com/services/xml/rss/nyt/MediaandAdvertising.xml"
+  s.description ="Media"
 end
 
-Feed.seed do |s|
-  s.name ="スポーツ"
-  s.url ="https://news.yahoo.co.jp/pickup/sports/rss.xml"
-  s.description ="スポーツ"
-end
 
-Feed.seed do |s|
-  s.name ="エンタメ"
-  s.url ="https://news.yahoo.co.jp/pickup/entertainment/rss.xml"
-  s.description ="エンタメ"
-end
 

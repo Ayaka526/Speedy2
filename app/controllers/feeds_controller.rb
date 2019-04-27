@@ -3,6 +3,7 @@ class FeedsController < ApplicationController
   def top
     @entries= Entry.limit(10)
     @feeds = Feed.all
+    @user = current_user
 
   end
 

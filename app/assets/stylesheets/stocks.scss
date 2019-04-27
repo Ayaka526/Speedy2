@@ -1,3 +1,17 @@
 // Place all the styles related to the stocks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.stock-container{
+	margin:8px;
+}
+.stock-list{
+	font-family: "Phosphate-Solid", "Phosphate Solid";
+	color:#fff;
+	margin:0;
+	padding-bottom:20px;
+}
+.stock-delete{
+	color: red;
+}
+

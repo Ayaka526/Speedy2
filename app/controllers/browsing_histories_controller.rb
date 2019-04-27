@@ -13,7 +13,9 @@ class BrowsingHistoriesController < ApplicationController
 
 	def index
 		@histories = current_user.browsing_histories.page(params[:page]).reverse_order
-
+		@entry_ids = Stock.group(:entry_id).order('count(entry_id) desc').limit(5).pluck(:entry_id)
+	    @all_ranks = Stock.group(:entry_id).where(entry_id: @entry_ids)
+	    @user = current_user
 	end
 
 	def destroy

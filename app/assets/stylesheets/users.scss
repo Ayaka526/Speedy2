@@ -18,15 +18,24 @@
     }
 
     .col {
-      width: 100%;
+      width: 80%;
       text-align: center;
-      background-color: #fcc800;
-      margin-right:10px;
-      padding:50px;
-      box-shadow:0px 0px 19px 5px #736f06;
-      font-size:17px;
-      border-radius: 10px;
     }
+        .col a:hover{
+          color:#fff;
+          text-decoration: none;
+        }
+            .mp-button{
+              background-color: #fcc800;
+              margin-right:10px;
+              padding:80px 10px;
+              box-shadow:0px 0px 19px 5px #736f06;
+              font-size:17px;
+              border-radius: 10px;
+            }
+            .mp-button:hover{
+                background-color:#222;
+            }
 
     .mypage-top{
         background-color: #222;
@@ -48,9 +57,6 @@
         color: #fff;
     }
 
-	.mypage-contents{
-    }
-
     .account-info {
         margin-left:50px;
         margin-top:20px;
@@ -60,9 +66,11 @@
         border-bottom: solid 2px #000;
     }
         .account-info li{
-            font-family: "Phosphate-Solid", "Phosphate Solid";
+            font-family: "Impact";
+            font-weight:bold;
             list-style: none;
             font-size:20px;
+            line-height:2;
         }
 
     .mypage-reply {
@@ -77,7 +85,7 @@
         display: inline-block;
         top: -13px;
         left: 10px;
-        padding: 0 9px;
+        padding:50px;
         line-height: 1;
         font-size: 20px;
         color: #222;
@@ -88,17 +96,78 @@
         padding: 0;
     }
 
-/*-----------------EDIT-----------------------*/
 
-    .new-inquire{
+/*-----------------EDIT-----------------------*/
+    .edit-container{
+        background-color:#fff;
+        margin:100px;
+        margin-top:200px;
+        padding:100px 50px;
+    }
+    .edit-title{
+        font-family: "Phosphate-Solid", "Phosphate Solid";
+    }
+    .edit-contents{
+        margin-top:70px;
+        font-size:20px;
+        line-height: 2;
+    }
+
+    .btn-warning{
+         font-family: "Phosphate-Solid", "Phosphate Solid";
+    }
+
+    .password-container{
+        background-color:#fff;
+        margin:100px 100px 20px 100px;
+        padding:25px;
+        border-radius: 10px
+    }
+    .top-password{
+        font-family: "Phosphate-Solid", "Phosphate Solid";
+    }
+    .password-contents{
+        margin-top:30px;
+        font-size:20px;
+        line-height: 2;
+    }
+
+    .delete-container{
+        background-color:#fff;
+        margin-right:100px;
+        margin-left:100px;
+        padding:25px;
+         border-radius: 10px
+    }
+
+    .delete-title{
+        font-family: "Phosphate-Solid", "Phosphate Solid";
+    }
+    .delete-contents{
+        margin-top:30px;
+        font-size:20px;
+        line-height: 2;
+    }
+    .btn-warning{
+         font-family: "Phosphate-Solid", "Phosphate Solid";
+    }
+
+/*-----------------FORGEOT PASSWORD-----------------------*/
+
+    .forgot-container{
         background-color:#fff;
         margin:100px;
         padding:50px;
     }
-    .inquire-title{
+    .forgot-title{
         font-family: "Phosphate-Solid", "Phosphate Solid";
     }
-    .inquire-contents{
-        margin-top:30px;
-        font-size:20px
+    .forgot-contents{
+        margin-top:70px;
+        font-size:20px;
+        line-height: 2;
+    }
+
+    .btn-warning{
+         font-family: "Phosphate-Solid", "Phosphate Solid";
     }
