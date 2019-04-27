@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
   <div class ="row">
     <div class="col-lg-2 index-left">
@@ -7,41 +6,41 @@
   <!--------------------------ONLY ADMIN------------------------------------>
           <% if current_user.try(:admin?) %>
           <ul class="index-category">
-            <h1 class="index-title">SPEEDY</h1>
-              <h4><%= link_to "Today's new", entries_path(id:1) %></h4>
-              <h4><%= link_to "Top news", entries_path(id:2) %></h4>
-              <h4><%= link_to "International", entries_path(id:3) %></h4>
-              <h4><%= link_to "Domestic", entries_path(id:4) %></h4>
-              <h4><%= link_to "Economy", entries_path(id:5) %></h4>
-              <h4><%= link_to "IT", entries_path(id:6) %></h4>
-              <h4><%= link_to "Science", entries_path(id:7) %></h4>
-              <h4><%= link_to "Sports", entries_path(id:8) %></h4>
-              <h4><%= link_to "Entertaiment", entries_path(id:9) %></h4>
-
-              <div class="search-box">
-              <h3 class="search-title">SEARCH</h3>
-              <%= search_form_for @q, url: entries_path, :html => {:class => 'search_container'} do |f| %>
-              <%= f.search_field :title_cont %>
-              <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit",:class =>"btn btn-default btn-xs search-button" %>
-              <% end %>
-            </div>
+            <h1 class="index-title"><% link_to "SPEEDY", feeds_top_path %></h1>
+              <h4><%= link_to "Today", entries_path(id:1) %></h4>
+              <h4><%= link_to "Business", entries_path(id:2) %></h4>
+              <h4><%= link_to "Economy", entries_path(id:3) %></h4>
+              <h4><%= link_to "Technology", entries_path(id:4) %></h4>
+              <h4><%= link_to "Science", entries_path(id:5) %></h4>
+              <h4><%= link_to "Environment", entries_path(id:6) %></h4>
+              <h4><%= link_to "Sports", entries_path(id:7) %></h4>
+              <h4><%= link_to "Media", entries_path(id:8) %></h4>
 
           </ul>
+
+              <div class="search-container">
+              <h3 class="search-title">SEARCH</h3>
+              <%= search_form_for @q, url: entries_path, :html => {:class => 'search_container' } do |f| %>
+              <%= f.search_field :title_cont, class: "search-input" %>
+              <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit",:class =>"btn btn-default btn-xs search-button" %>
+              <% end %>
+              </div>
+
           <ul class="index-list">
               <p><%= link_to "Admin page", user_mypage_path(current_user.id) %></p>
-              <p><%= link_to "Users page",  users_path %></p>
+              <p><%= link_to "Users page", users_path %></p>
               <p><%= link_to "Browsing History",  browsing_histories_path %></p>
               <p><i class="fas fa-question"></i><%= link_to "QUESTIONS",inquiries_path %></p>
               <p><i class="fas fa-sign-out-alt"></i><%= link_to " Log out",destroy_user_session_path, method: :delete %></p>
           </ul>
       </div>
-          <div class="col-lg-6 index-middle">
+      <div class="col-lg-6 index-middle">
 
               <div class="slider">
                  <% @entries.each_with_index do |entry, index|  %>
                     <div style="background-image: url(<%= asset_path("honey#{index+1}.png")%>)">
                       <p class="slider-text">
-                        <span class="record-history" href="<%= entry.url%>"><%= entry.title %></span><br>
+                        <span class="record-history pick" href="<%= entry.url%>"><%= entry.title %></span><br>
                           <i class="published"> - published<%= entry.published.strftime("%Y-%m-%d-%R") %></i>
                       </p>
                     </div>
@@ -56,19 +55,20 @@
                       <% else %>
                         <button class="stock-icon btn btn-xs" value=<%= entry.id %> formmethod="post"><i class="fas fa-paperclip fa-2x"></i></button>
                       <% end %>
-                   <span class="record-history" href="<%= entry.url%>"><%= entry.title %></span>
+                   <span class="record-history pick" href="<%= entry.url%>"><%= entry.title %></span>
                    <br> - <i class="published"> published <%= entry.published.strftime("%Y-%m-%d-%R") %></i>
                 </div>
               </div>
             <% end %>
-            <%= paginate @entries, class: "paginate" %>
+              <%= paginate @entries, class: "paginate" %>
           </div>
+
 
           <div class="col-lg-4 index-right">
             <div class="greeting">Hello, <%= @user.name %></div>
             <div class="weather-box">
               <h2 class="weather-title">WEATHER</h2>
-                  <input id="cityname" type="text" size="14" maxlength="14" placeholder="CITY NAME">
+                  <input id="cityname" type="text" size="14" maxlength="14" placeholder="CITY NAME" class="search-input">
                   <button id="search" class="btn btn-default btn-xs search-button"><i class="fa fa-search"></i></button><br>
                     <div class="weather-list">
                           <span>PLACE :</span>
@@ -86,19 +86,20 @@
                               <span>WEATHER :</span>
                               <span id="weather"></span>
                           </div>
-                          <div id="icon"><img id="img"></div>
                     </div>
             </div>
             <br>
-            <h2 class="ranking-title">STOCK RANKING</h2>
-              <div class="ranking-index">
-                <% @all_ranks.each.with_index(1) do |stock, i| %>
-                    <ul class="raniking-box">
-                      <i class="far fa-bookmark fa-lg"></i>  <%= i %>
-                        <span class="stock-ranking" href="<%= stock.entry.url%>"><%= stock.entry.title %></span>
-                        <br> - <i class="published"> published <%= stock.entry.published.strftime("%Y-%m-%d-%R") %></i>
-                    </ul>
-                <% end %>
+            <div class="rnk">
+              <h2 class="ranking-title">STOCK RANKING</h2>
+                <div class="ranking-index">
+                  <% @all_ranks.each.with_index(1) do |stock, i| %>
+                      <ul class="raniking-box">
+                        <i class="far fa-bookmark fa-lg"></i>  <%= i %>
+                          <span class="stock-ranking pick" href="<%= stock.entry.url%>"><%= stock.entry.title %></span>
+                          <br> - <i class="published"> published <%= stock.entry.published.strftime("%Y-%m-%d-%R") %></i>
+                      </ul>
+                  <% end %>
+                </div>
               </div>
               <div id="indexHexGrid">
                 <div class="hexCrop">
@@ -112,26 +113,26 @@
   <!--------------------------ONLY USER------------------------------------>
           <% elsif user_signed_in? %>
           <ul class="index-category">
-            <h1 class="index-title">SPEEDY</h1>
-              <h4><%= link_to "Today's new", entries_path(id:1) %></h4>
-              <h4><%= link_to "Top news", entries_path(id:2) %></h4>
-              <h4><%= link_to "International", entries_path(id:3) %></h4>
-              <h4><%= link_to "Domestic", entries_path(id:4) %></h4>
-              <h4><%= link_to "Economy", entries_path(id:5) %></h4>
-              <h4><%= link_to "IT", entries_path(id:6) %></h4>
-              <h4><%= link_to "Science", entries_path(id:7) %></h4>
-              <h4><%= link_to "Sports", entries_path(id:8) %></h4>
-              <h4><%= link_to "Entertaiment", entries_path(id:9) %></h4>
-
-              <div class="search-box">
-              <h3 class="search-title">SEARCH</h3>
-              <%= search_form_for @q, url: entries_path, :html => {:class => 'search_container'} do |f| %>
-              <%= f.search_field :title_cont %>
-              <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit",:class =>"btn btn-default btn-xs search-button" %>
-              <% end %>
-            </div>
+             <h1 class="index-title"><%= link_to "SPEEDY", feeds_top_path %></h1>
+              <h4><%= link_to "Today", entries_path(id:1) %></h4>
+              <h4><%= link_to "Business", entries_path(id:2) %></h4>
+              <h4><%= link_to "Economy", entries_path(id:3) %></h4>
+              <h4><%= link_to "Technology", entries_path(id:4) %></h4>
+              <h4><%= link_to "Science", entries_path(id:5) %></h4>
+              <h4><%= link_to "Environment", entries_path(id:6) %></h4>
+              <h4><%= link_to "Sports", entries_path(id:7) %></h4>
+              <h4><%= link_to "Media", entries_path(id:8) %></h4>
 
           </ul>
+
+              <div class="search-container">
+              <h3 class="search-title">SEARCH</h3>
+              <%= search_form_for @q, url: entries_path, :html => {:class => 'search_container'} do |f| %>
+              <%= f.search_field :title_cont, class: "search-input" %>
+              <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit",:class =>"btn btn-default btn-xs search-button" %>
+              <% end %>
+              </div>
+
           <ul class="index-list">
               <p><%= link_to "My page", user_mypage_path(current_user.id) %></p>
               <p><%= link_to "Stock list", stocks_list_path %></p>
@@ -141,13 +142,13 @@
           </ul>
 
       </div>
-          <div class="col-lg-6 index-middle">
+      <div class="col-lg-6 index-middle">
 
               <div class="slider">
                  <% @entries.each_with_index do |entry, index|  %>
                     <div style="background-image: url(<%= asset_path("honey#{index+1}.png")%>)">
                       <p class="slider-text">
-                        <span class="record-history" href="<%= entry.url%>"><%= entry.title %></span><br>
+                        <span class="record-history pick" href="<%= entry.url%>"><%= entry.title %></span><br>
                           <i class="published"> - published<%= entry.published.strftime("%Y-%m-%d-%R") %></i>
                       </p>
                     </div>
@@ -162,7 +163,7 @@
                       <% else %>
                         <button class="stock-icon btn btn-xs" value=<%= entry.id %> formmethod="post"><i class="fas fa-paperclip fa-2x"></i></button>
                       <% end %>
-                   <span class="record-history" href="<%= entry.url%>"><%= entry.title %></span>
+                   <span class="record-history pick" href="<%= entry.url%>"><%= entry.title %></span>
                    <br> - <i class="published"> published <%= entry.published.strftime("%Y-%m-%d-%R") %></i>
                 </div>
               </div>
@@ -170,11 +171,12 @@
             <%= paginate @entries, class: "paginate" %>
           </div>
 
+
           <div class="col-lg-4 index-right">
-            <div class="greeting">Hello, <%= @user.name %></div>>
+            <div class="greeting">Hello, <%= @user.name %></div>
             <div class="weather-box">
               <h2 class="weather-title">WEATHER</h2>
-                  <input id="cityname" type="text" size="14" maxlength="14" placeholder="CITY NAME">
+                  <input id="cityname" type="text" size="14" maxlength="14" placeholder="CITY NAME" class="search-input">
                   <button id="search" class="btn btn-default btn-xs search-button"><i class="fa fa-search"></i></button><br>
                     <div class="weather-list">
                           <span>PLACE :</span>
@@ -192,20 +194,21 @@
                               <span>WEATHER :</span>
                               <span id="weather"></span>
                           </div>
-                          <div id="icon"><img id="img"></div>
                     </div>
             </div>
             <br>
+            <div class="rnk">
             <h2 class="ranking-title">STOCK RANKING</h2>
               <div class="ranking-index">
                 <% @all_ranks.each.with_index(1) do |stock, i| %>
                     <ul class="raniking-box">
                       <i class="far fa-bookmark fa-lg"></i>  <%= i %>
-                        <span class="stock-ranking" href="<%= stock.entry.url%>"><%= stock.entry.title %></span>
+                        <span class="stock-ranking pick" href="<%= stock.entry.url%>"><%= stock.entry.title %></span>
                         <br> - <i class="published"> published <%= stock.entry.published.strftime("%Y-%m-%d-%R") %></i>
                     </ul>
                 <% end %>
               </div>
+            <div class="rnk">
               <div id="indexHexGrid">
                 <div class="hexCrop">
                   <div class="hexGrid">

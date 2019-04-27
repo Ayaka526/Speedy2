@@ -1,18 +1,23 @@
 
-<div class="container">
-  <% @stocks.each do |stock| %>
-    <div class="panel panel-default">
-      <div class="panel-body">
-         <span class="record-history" href="<%= stock.entry.url%>"><%= stock.entry.title %></span> - <i> published <%= stock.entry.published.strftime("%Y-%m-%d-%R") %></i>
+<%= render "entries/side", q: @q, user: @user, all_ranks: @all_ranks %>
 
-         		<% if current_user.already_stocked?(stock.entry) %>>
-              <button class="stock-delete btn btn-danger btn-xs" value=<%= stock.entry.id %> method="delete" >delete</button>
-         		<% end %>
-
-      </div>
-    </div>
-  <% end %>
-
-  <%= paginate @stocks, class: "paginate" %>
+<div class="col-lg-6 index-middle stock-container">
+  <h1 class="stock-list">Stock List</h1>
+      <% @stocks.each do |stock| %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <% if current_user.already_stocked?(stock.entry) %>
+              <%= link_to stocks_delete_path(stock), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <i class="fas fa-trash-alt history-delete fa-2x"></i>
+              <% end %>
+            <% end %>
+             <span class="record-history pick" href="<%= stock.entry.url%>"><%= stock.entry.title %></span>
+             <br>- <i> published <%= stock.entry.published.strftime("%Y-%m-%d-%R") %></i>
+          </div>
+        </div>
+      <% end %>
+      <%= paginate @stocks, class: "paginate" %>
 </div>
+
+
 

@@ -1,16 +1,26 @@
-<h2>Forgot your password?</h2>
+<div class="container">
+	<div class="row">
+		<div class="forgot-container">
+			<h1 class="fotrgot-title">
+				Forgot your password?
+			</h1>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+				<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+				  <%= render "devise/shared/error_messages", resource: resource %>
+				  		<table class="table">
+				  			<tr>
+							 	<th class="forgot-contents">
+							    <%= f.label :email %><br /></th>
+							    <td><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "70x4" %></td>
+							</tr>
+					    </table>
+					<%= f.submit "Send me reset password instructions", class:"btn btn-warning btn-lg btn-block" %>
+				<% end %>
+				<div class="back-contents">
+					<%= link_to "Log in", new_session_path(resource_name) %> /
+					<%= link_to "Sign up", new_registration_path(resource_name) %>
+				</div>
+		</div>
+	</div>
+</div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

@@ -19,6 +19,22 @@
 
 // Left Slidebar controls
 
+    function set2fig(num) {
+       // 桁数が1桁だったら先頭に0を加えて2桁に調整する
+       var ret;
+       if( num < 10 ) { ret = "0" + num; }
+       else { ret = num; }
+       return ret;
+    }
+    function showClock() {
+       var nowTime = new Date();
+       var nowHour = set2fig( nowTime.getHours() );
+       var nowMin  = set2fig( nowTime.getMinutes() );
+       var nowSec  = set2fig( nowTime.getSeconds() );
+       var msg =  nowHour + ":" + nowMin + ":" + nowSec;
+       document.getElementById("topClock").innerHTML = msg;
+    }
+    setInterval('showClock()',1000);
 
 
 $(document).ready(function () {
@@ -72,7 +88,7 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-	$('.record-history').on('click',function(event){
+	$('.pick').on('click',function(event){
 	   // event.preventDefault();
 	   var linkUrl = $(this).attr('href');
 	   console.log(linkUrl)
@@ -94,7 +110,6 @@ $(document).ready(function() {
     $(document).on('click','.stock-already', function(event){
         var entryId = $(this).val();
          // $(this).text("STOCK");
-         console.log
          $(this).removeClass('stock-already');
          $(this).addClass('stock-icon');
        // Ajaxリクエストを送って自分のところから自分のところに情報入れる

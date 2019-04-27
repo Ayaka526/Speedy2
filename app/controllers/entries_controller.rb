@@ -10,11 +10,6 @@ class EntriesController < ApplicationController
     @user = current_user
   end
 
-
-  def show
-    @entry = Entry.find(params[:id])
-  end
-
   private
   def set_feed
     @feed = Feed.find(params[:id])

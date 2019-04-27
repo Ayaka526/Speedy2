@@ -100,10 +100,12 @@
         padding: 8px 13px;
         border-radius: 4px;
         transition: .4s;
+        background-color: #fff;
     }
 
     .btn-back:hover {
         background-color: #9ec34b;
         border-color: gold;
         color: gold;
+        text-decoration: none;
     }

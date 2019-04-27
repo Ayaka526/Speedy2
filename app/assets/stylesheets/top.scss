@@ -1,0 +1,104 @@
+
+/*-----------------BACK CONTENTS------------------------*/
+.bg-video-wrap {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background: url(https://designsupply-web.com/samplecontent/vender/codepen/20181014.png) no-repeat center center/cover;
+}
+video {
+    min-width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+}
+.top-cover {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(45deg, rgba(0,0,0,.3) 50%, rgba(0,0,0,.7) 50%);
+    background-size: 3px 3px;
+    z-index: 2;
+}
+
+.center-contents{
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 3;
+    max-width: 700px;
+    width: 100%;
+    height: 150px;
+}
+/*-----------------TOP TITLE------------------------*/
+
+.top-header{
+ padding:40px;
+}
+.top-title{
+  color:#222;
+  border-bottom: solid 3px #222;
+  width:40%;
+}
+#topClock{
+  font-size:70px;
+  color: #fff;
+  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+}
+
+
+/*-----------------TOP CONTENTS------------------------*/
+
+
+  #top-menu {
+    font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    padding: 5px;
+    font-size: 20px;
+  }
+
+    .tp-name{
+      border-bottom: solid 3px gold;
+      text-align: right;
+      margin-right:5px;
+    }
+
+     #top-menu h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      margin-top: 0;
+      letter-spacing: .3rem;
+      font-family: "Phosphate-Solid", "Phosphate Solid";
+    }
+
+  #top-contents{
+    right:0;
+  }
+
+  #top-menu a{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    background:rgba(0,0,0,0.3);
+    padding: 20px;
+    transition: .6s background;
+    font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  }
+       #top-menu a:hover{
+        background:rgba(0,0,0,0.9);
+      }
+
+  .tp-message{
+    font-size:16px;
+    padding:15px;
+  }
+
+
+

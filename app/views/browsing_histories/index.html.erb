@@ -1,13 +1,19 @@
 
-<div class="container">
-  <% @histories.each do |history| %>
-    <div class="panel panel-default">
-      <div class="panel-body">
-         <span class="browsing-list" href="<%= history.entry.url%>"><%= history.entry.title %><span> - <i> published <%= history.entry.published.strftime("%Y-%m-%d-%R") %></i>
-         <%= link_to 'Destroy',  browsing_history_path(history.id), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    </div>
-  <% end %>
-  <%= paginate @histories, class: "paginate" %>
 
+<%= render "entries/side", q: @q, user: @user, all_ranks: @all_ranks %>
+
+<div class="col-lg-6 index-middle history-container">
+	<h1 class="history-list">Browsing History</h1>
+	  <% @histories.each do |history| %>
+	    <div class="panel panel-default">
+	      <div class="panel-body">
+	      	<%= link_to browsing_history_path(history.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+	      		<i class="fas fa-trash-alt  history-delete fa-2x"></i>
+	      	<% end %>
+	         <span class="browsing-list pick" href="<%= history.entry.url%>"><%= history.entry.title %></span>
+	         <br>- <i class="published"> published <%= history.entry.published.strftime("%Y-%m-%d-%R") %></i>
+	      </div>
+	    </div>
+	  <% end %>
+	  <%= paginate @histories, class: "paginate" %>
 </div>
