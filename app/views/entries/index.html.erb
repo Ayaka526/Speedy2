@@ -46,7 +46,7 @@
 
                 <div class="slider">
                    <% @entries.each_with_index do |entry, index|  %>
-                      <div style="background-image: url(<%= asset_path("honey#{index+1}.png")%>)">
+                      <div style="background-image: url(<%= asset_path("/images/honey#{index+1}.png")%>)">
                         <p class="slider-text">
                           <span class="record-history pick" href="<%= entry.url%>"><%= entry.title %></span><br>
                             <i class="published"> - published<%= entry.published.strftime("%Y-%m-%d-%R") %></i>
@@ -148,7 +148,7 @@
             <div class="col-lg-6 index-middle">
                 <div class="slider">
                   <% @entries.each_with_index do |entry, index|  %>
-                    <div style="background-image: url(<%= asset_path("honey#{index+1}.png")%>)">
+                    <div style="background-image: url(<%= asset_path("/images/honey#{index+1}.png")%>)">
                       <p class="slider-text">
                           <span class="record-history pick" href="<%= entry.url%>"><%= entry.title %></span><br>
                                 <i class="published"> - published<%= entry.published.strftime("%Y-%m-%d-%R") %></i>
