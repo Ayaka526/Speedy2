@@ -1,19 +1,172 @@
 
+<div class="container-fluid">
+    <div class="bg-video-wrap">
+        <video src="https://designsupply-web.com/samplecontent/vender/codepen/20181014.mp4" loop muted autoplay>
+        </video>
+        <div class="top-cover">
+        </div>
+        <div class="row">
 
-<%= render "entries/side", q: @q, user: @user, all_ranks: @all_ranks %>
+  <!--------------------------ONLY ADMIN------------------------------------>
+          <% if current_user.try(:admin?) %>
+            <div class="col-lg-2 index-left">
+              <ul class="index-category">
+                <h1 class="index-title"><%= link_to "SPEEDY", feeds_top_path %></h1>
+                  <h4><%= link_to "Today", entries_path(id:1) %></h4>
+                  <h4><%= link_to "Business", entries_path(id:2) %></h4>
+                  <h4><%= link_to "Economy", entries_path(id:3) %></h4>
+                  <h4><%= link_to "Technology", entries_path(id:4) %></h4>
+                  <h4><%= link_to "Science", entries_path(id:5) %></h4>
+                  <h4><%= link_to "Environment", entries_path(id:6) %></h4>
+                  <h4><%= link_to "Sports", entries_path(id:7) %></h4>
+                  <h4><%= link_to "Media", entries_path(id:8) %></h4>
 
-<div class="col-lg-6 index-middle history-container">
-	<h1 class="history-list">Browsing History</h1>
-	  <% @histories.each do |history| %>
-	    <div class="panel panel-default">
-	      <div class="panel-body">
-	      	<%= link_to browsing_history_path(history.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
-	      		<i class="fas fa-trash-alt  history-delete fa-2x"></i>
-	      	<% end %>
-	         <span class="browsing-list pick" href="<%= history.entry.url%>"><%= history.entry.title %></span>
-	         <br>- <i class="published"> published <%= history.entry.published.strftime("%Y-%m-%d-%R") %></i>
-	      </div>
-	    </div>
-	  <% end %>
-	  <%= paginate @histories, class: "paginate" %>
+              </ul>
+
+              <ul class="index-list">
+                  <p><%= link_to "Admin page", user_mypage_path(current_user.id) %></p>
+                  <p><%= link_to "Users page", users_path %></p>
+                  <p><%= link_to "Browsing History",  browsing_histories_path %></p>
+                  <p><i class="fas fa-question"></i><%= link_to "QUESTIONS",inquiries_path %></p>
+                  <p><i class="fas fa-sign-out-alt"></i><%= link_to " Log out",destroy_user_session_path, method: :delete %></p>
+              </ul>
+            </div>
+
+            <div class="col-lg-6 index-middle history-container">
+				<h1 class="history-list">Browsing History</h1>
+				  <% @histories.each do |history| %>
+				    <div class="panel panel-default">
+				      <div class="panel-body">
+				      	<%= link_to browsing_history_path(history.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+				      		<i class="fas fa-trash-alt  history-delete fa-2x"></i>
+				      	<% end %>
+				         <span class="browsing-list pick" href="<%= history.entry.url%>"><%= history.entry.title %></span>
+				         <br>- <i class="published"> published <%= history.entry.published.strftime("%Y-%m-%d-%R") %></i>
+				      </div>
+				    </div>
+				  <% end %>
+				  <%= paginate @histories, class: "paginate" %>
+			</div>
+
+            <div class="col-lg-4 index-right">
+                <div class="greeting">Hello, <%= @user.name %></div>
+                  <div class="weather-box">
+                    <h2 class="weather-title">WEATHER</h2>
+                        <input id="cityname" type="text" size="14" maxlength="14" placeholder="CITY NAME" class="search-input">
+                        <button id="search" class="btn btn-default btn-xs search-button"><i class="fa fa-search"></i></button><br>
+                          <div class="weather-list">
+                                <span>PLACE :</span>
+                                <span id="place"></span><br>
+                                <div class="weather-descroption">
+                                    <span>TEMP :  </span>
+                                    <span id="temp_max"></span>
+                                    <span>   ℃</span>
+                                    <span>  /  </span>
+                                    <span id="temp_min"></span>
+                                    <span>   ℃</span><br>
+                                    <span>HUMIDITY :</span>
+                                    <span id="humidity"></span>
+                                    <span>   %</span><br>
+                                    <span>WEATHER :</span>
+                                    <span id="weather"></span>
+                                </div>
+                          </div>
+                  </div>
+                <br>
+
+                <div class="rnk">
+                  <h2 class="ranking-title">STOCK RANKING</h2>
+                    <div class="ranking-index">
+                      <% @all_ranks.each.with_index(1) do |stock, i| %>
+                          <ul class="raniking-box">
+                            <i class="far fa-bookmark fa-lg"></i>  <%= i %>
+                              <span class="stock-ranking pick" href="<%= stock.entry.url%>"><%= stock.entry.title %></span>
+                              <br> - <i class="published"> published <%= stock.entry.published.strftime("%Y-%m-%d-%R") %></i>
+                          </ul>
+                      <% end %>
+                    </div>
+                </div>
+            </div>
+  <!--------------------------ONLY USER------------------------------------>
+          <% elsif user_signed_in? %>
+            <div class="col-lg-2 index-left">
+              <ul class="index-category">
+                 <h1 class="index-title"><%= link_to "SPEEDY", feeds_top_path %></h1>
+                  <h4><%= link_to "Today", entries_path(id:1) %></h4>
+                  <h4><%= link_to "Business", entries_path(id:2) %></h4>
+                  <h4><%= link_to "Economy", entries_path(id:3) %></h4>
+                  <h4><%= link_to "Technology", entries_path(id:4) %></h4>
+                  <h4><%= link_to "Science", entries_path(id:5) %></h4>
+                  <h4><%= link_to "Environment", entries_path(id:6) %></h4>
+                  <h4><%= link_to "Sports", entries_path(id:7) %></h4>
+                  <h4><%= link_to "Media", entries_path(id:8) %></h4>
+              </ul>
+
+              <ul class="index-list">
+                  <p><%= link_to "My page", user_mypage_path(current_user.id) %></p>
+                  <p><%= link_to "Stock list", stocks_list_path %></p>
+                  <p><%= link_to "Browsing History",  browsing_histories_path %></p>
+                  <p><i class="fas fa-question"></i><%= link_to "  Question",new_inquiry_path %></p>
+                  <p><i class="fas fa-sign-out-alt"></i><%= link_to " Log out",destroy_user_session_path, method: :delete %></p>
+              </ul>
+            </div>
+
+			<div class="col-lg-6 index-middle history-container">
+				<h1 class="history-list">Browsing History</h1>
+				  <% @histories.each do |history| %>
+				    <div class="panel panel-default">
+				      <div class="panel-body">
+				      	<%= link_to browsing_history_path(history.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+				      		<i class="fas fa-trash-alt  history-delete fa-2x"></i>
+				      	<% end %>
+				         <span class="browsing-list pick" href="<%= history.entry.url%>"><%= history.entry.title %></span>
+				         <br>- <i class="published"> published <%= history.entry.published.strftime("%Y-%m-%d-%R") %></i>
+				      </div>
+				    </div>
+				  <% end %>
+				  <%= paginate @histories, class: "paginate" %>
+			</div>
+
+            <div class="col-lg-4 index-right">
+              <div class="greeting">Hello, <%= @user.name %></div>
+                <div class="weather-box">
+                  <h2 class="weather-title">WEATHER</h2>
+                      <input id="cityname" type="text" size="14" maxlength="14" placeholder="CITY NAME" class="search-input">
+                      <button id="search" class="btn btn-default btn-xs search-button"><i class="fa fa-search"></i></button><br>
+                        <div class="weather-list">
+                              <span>PLACE :</span>
+                                <span id="place"></span><br>
+                                  <div class="weather-descroption">
+                                      <span>TEMP :  </span>
+                                      <span id="temp_max"></span>
+                                      <span>   ℃</span>
+                                      <span>  /  </span>
+                                      <span id="temp_min"></span>
+                                      <span>   ℃</span><br>
+                                      <span>HUMIDITY :</span>
+                                      <span id="humidity"></span>
+                                      <span>   %</span><br>
+                                      <span>WEATHER :</span>
+                                      <span id="weather"></span>
+                                  </div>
+                        </div>
+                </div>
+                <br>
+                  <div class="rnk">
+                  <h2 class="ranking-title">STOCK RANKING</h2>
+                    <div class="ranking-index">
+                      <% @all_ranks.each.with_index(1) do |stock, i| %>
+                          <ul class="raniking-box">
+                            <i class="far fa-bookmark fa-lg"></i>  <%= i %>
+                              <span class="stock-ranking pick" href="<%= stock.entry.url%>"><%= stock.entry.title %></span>
+                              <br> - <i class="published"> published <%= stock.entry.published.strftime("%Y-%m-%d-%R") %></i>
+                          </ul>
+                      <% end %>
+                    </div>
+                  </div>
+            </div>
+          <% end %>
+
+        </div>
+    </div>
 </div>

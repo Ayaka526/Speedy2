@@ -16,6 +16,9 @@ class BrowsingHistoriesController < ApplicationController
 		@entry_ids = Stock.group(:entry_id).order('count(entry_id) desc').limit(5).pluck(:entry_id)
 	    @all_ranks = Stock.group(:entry_id).where(entry_id: @entry_ids)
 	    @user = current_user
+	     if @user.id != current_user.id
+	       redirect_to  home_route_path
+	      end
 	end
 
 	def destroy

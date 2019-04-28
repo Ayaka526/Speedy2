@@ -1,4 +1,6 @@
 class InquiriesController < ApplicationController
+  before_action :correct_user, only: [:index]
+
 	def new
     @inquiry = Inquiry.new
   end
@@ -31,6 +33,12 @@ class InquiriesController < ApplicationController
     private
     def inquiry_params
       params.require(:inquiry).permit(:title, :body)
+    end
+
+    def correct_user
+        if  current_user.id !=1
+            redirect_to  home_route_path
+        end
     end
 
 end

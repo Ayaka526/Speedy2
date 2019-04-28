@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     	end
   end
 
+
+    resources :users do
+      resources :stocks, :only=>[:index]
+    end
+
     resources :users do
     get '/mypage' => 'users#mypage'
     patch '/admin' => 'users#admin_update'

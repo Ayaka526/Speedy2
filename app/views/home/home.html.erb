@@ -1,5 +1,24 @@
 <body class="home-body">
 
+	<% if user_signed_in? %>
+
+		<nav class="layer">
+			    <ul class="home-contents">
+			        <li class="home-list"><%= link_to "Top",  feeds_top_path %></li>
+              		<li class="home-list"><%= link_to "My page",  user_mypage_path(current_user) %></li>
+              		<li class="home-list"><%= link_to "Index", entries_path(id:1) %></li>
+              		<li class="home-list"><%= link_to "what's speedy", home_about_path %></li>
+              		<li class="home-list"><%= link_to " Log out",destroy_user_session_path, method: :delete %></li>
+			    </ul>
+			</nav>
+
+			<section class="home page layer">
+				<h1 class= "home-title">Speedy</h1>
+			</section>
+
+
+	<% else %>
+
 			<nav class="layer">
 			    <ul class="home-contents">
 			        <li class="home-list"><%= link_to "sign up", new_user_registration_path %></li>
@@ -12,6 +31,7 @@
 				<h1 class= "home-title">Speedy</h1>
 			</section>
 
+	<% end %>
 
 </body>
 
