@@ -1,28 +1,23 @@
 <div class="container">
-            <div class="row">
-
-              	<div>
-
-					　　 <%= form_tag(inquiries_path, :method => 'get') do %>
-              　 <%= text_field_tag :search, params[:search] %>
-            　　   <%= submit_tag "内容検索", :name => nil %>
-                       <% end %>
-				        </div>
-
-            </div>
-
-              	<table class= "table table-hover table-inverse table-bordered">
+  <div class="row">
+      <div class="user-search">
+         <h1 class="usr-title"> INQUIRIES SEARCH</h1>
+					 <%= form_tag(inquiries_path, :method => 'get') do %>
+              <%= text_field_tag :search, params[:search], class: "search-input", size: "40", placeholder: "Search Words" %>
+               <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit",:class =>"btn btn-default btn-xs search-button" %>
+              <% end %>
+      </div>
+        <table class= "table table-hover table-inverse table-bordered user-table">
             		<thead>
-
             		  <tr>
-              			  <th class ="user-name col-xs-2">名前</th>
-               			  <th class ="inquiry-title col-xs-2">件名</th>
-                 		　<th class ="inquiry-body col-xs-5">本文</th>
-                 		　<th class ="show-button col-xs-1">詳細</th>
-              		　</tr>
-          		　  </thead>
+              			  <th class ="user-name col-xs-2">Name</th>
+               			  <th class ="inquiry-title col-xs-2">Title</th>
+                 		　<th class ="inquiry-body col-xs-5">Contents</th>
+                 		　<th class ="show-button col-xs-1"></th>
+              		</tr>
+          		　 </thead>
 
-           		　　 <tbody>
+           		　　<tbody>
               		 <% @inquiries.each do |inquiry| %>
                		  <tr class ="inquiry-item">
                    		　 <td class="name-user"><%= inquiry.user.name %></td>
@@ -32,11 +27,7 @@
                     </tr>
                     <% end %>
            			 </tbody>
-      		　  </table>
-
-
-          <button type="button" class="btn btn-default"><%= link_to "戻る", feeds_top_path, class: "back"%></button>
-
-
-
+      	</table>
+         <%= link_to "Back", :back, class:"back-button" %>
+     <div>
  </div>

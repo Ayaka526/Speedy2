@@ -1,39 +1,46 @@
 <div class="top-container">
 
   <div class="bg-video-wrap">
-    <video src="https://designsupply-web.com/samplecontent/vender/codepen/20181014.mp4" loop muted autoplay>
-    </video>
-    <div class="top-cover">
-      <div class="top-header">
-        <h1 class="top-title">SPEEDY</h1>
-        <p id="topClock"></p>
-      </div>
-    </div>
-    <div class="center-contents">
-
-      <div id="top-menu">
-        <div id="top-contents">
-          <p class="tp-name"> Hello, <%= @user.name %>!</p>
-          <h1>Speedy</h1>
+      <video src="https://designsupply-web.com/samplecontent/vender/codepen/20181014.mp4" loop muted autoplay>
+      </video>
+      <div class="top-cover">
+        <div class="top-header">
+          <h1 class="top-title">SPEEDY</h1>
+          <p id="topClock"></p>
         </div>
+      </div>
 
-        <p class="tp-message">Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it. And, like any great relationship, it just gets better and better as the years roll on. So keep looking until you find it. Don’t settle.by SteveJobs 1955-2011</p>
 
-        <div class="slider">
-                 <% @entries.each_with_index do |entry, index|  %>
-                    <div style="background-image: url(<%= asset_path("honey#{index+1}.png")%>)">
-                      <p class="slider-text">
-                        <span class="record-history pick" href="<%= entry.url%>"><%= entry.title %></span><br>
-                          <i class="published"> - published<%= entry.published.strftime("%Y-%m-%d-%R") %></i>
-                      </p>
-                    </div>
-                 <% end %>
+
+
+      <div class="center-contents">
+
+        <div id="top-menu">
+          <div id="top-contents">
+            <p class="tp-name"> Hello, <%= @user.name %>!</p>
+            <h1>Speedy</h1>
           </div>
 
-        <p><%= link_to "check today's news", entries_path(id:1) %></p>
+          <p class="tp-message">Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it. And, like any great relationship, it just gets better and better as the years roll on. So keep looking until you find it. Don’t settle.by SteveJobs 1955-2011</p>
+
+          <div class="slider">
+                   <% @entries.each_with_index do |entry, index|  %>
+                      <div style="background-image: url(<%= asset_path("honey#{index+1}.png")%>)">
+                        <p class="slider-text">
+                          <span class="record-history pick" href="<%= entry.url%>"><%= entry.title %></span><br>
+                            <i class="published"> - published<%= entry.published.strftime("%Y-%m-%d-%R") %></i>
+                        </p>
+                      </div>
+                   <% end %>
+          </div>
+
+          <p><%= link_to "check today's news", entries_path(id:1) %></p>
+        </div>
       </div>
-    </div>
+
   </div>
 
 
 </div>
+
+<%= javascript_include_tag 'clock.js' %>

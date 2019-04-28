@@ -36,20 +36,61 @@ a {
 }
 
 body{
-  background: dimgray;
+    background: dimgray;
+    background-image: repeating-linear-gradient(45deg,
+    #9B9B9B, #9B9B9B 3px,
+    transparent 0, transparent 6px);
 }
 
 .container-fluid{
         position:relative;
         margin:0 auto;
+        padding: 0;
     }
 
 .container{
         position:relative;
         margin:0 auto;
-        height:1300px;
+        padding:150px;
     }
 
+
+.bg-video-wrap {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background: url(https://designsupply-web.com/samplecontent/vender/codepen/20181014.png) no-repeat center center/cover;
+}
+
+video {
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 1;
+}
+
+.top-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(45deg, rgba(0,0,0,.3) 50%, rgba(0,0,0,.7) 50%);
+    background-size: 3px 3px;
+    z-index: 2;
+}
+
+
+.row{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+}
 
 /* ------------LOGIN,SIGN UP------------- */
     .back-button{
@@ -66,10 +107,6 @@ body{
 
     .back-contents{
         margin-top:30px;
-    }
-
-    .login-body {
-        background-color: #222;
     }
 
     .login-main {
@@ -227,20 +264,17 @@ body{
         color :red;
     }
 
-    .index-bg{
-        background: repeating-linear-gradient(90deg, #949494, #949494 3px, #808080 , #808080 10px);
-    }
-
     .index-left{
         background-color: gold;
         left:0;
-        position:fixed;
+       /* position:fixed;*/
+        position:sticky;
         display:block;
         padding:5px 0;
         text-align:left;
-        float:right;
+        /*float:right;*/
         width:20%;
-        height:1000px;
+        height:100%;
     }
 
         .index-category{
@@ -279,10 +313,11 @@ body{
             }
 
     .index-middle{
-       margin-left:320px;
+       margin-left:45px;
        padding-top:50px;
-       width: 50%;
        background-color: rgba(105,105,105,0.6);
+       width:720px; height:100%;
+       overflow-y: auto;
     }
          .pagenate{
             color: #fff;
@@ -292,21 +327,20 @@ body{
         }
 
     .panel-body:hover{
-       outline: 10px solid rgba(69,69,69,0.7);
+       outline: 15px solid rgba(119,153,125,0.9);
        color:#000;
        cursor: pointer;
        cursor: hand;
     }
 
     .index-right{
-        right:20px;
-        position:fixed;
+        position:sticky;
         display:block;
-        padding:5px 0;
         text-align:left;
-        height:1000px;
+        height:100%;
         width:24%;
         margin-bottom:0;
+         margin-left:30px;
     }
 
     #indexHexGrid{
@@ -441,3 +475,46 @@ body{
         margin-bottom:15px;
     }
 
+      /* ------------USER INDEX------------- */
+
+    .user-table{
+      border-collapse: collapse;
+      font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+    }
+
+        .user-table tr{
+          border-bottom: solid 2px white;
+          color: #222;
+          font-size:15px;
+        }
+
+        .user-table tr:last-child{
+          border-bottom: none;
+        }
+
+        .user-table th{
+          position: relative;
+          background-color: #292929;
+          color: white;
+          text-align: center;
+          font-family: "Phosphate-Solid", "Phosphate Solid";
+          font-size:20px;
+        }
+
+        .user-table td{
+          text-align: center;
+          background-color: #eee;
+          padding: 10px 0;
+        }
+
+    .user-search{
+        padding-top:80px;
+        left:0;
+    }
+
+    .usr-title{
+        font-size:55px;
+        font-family: "Phosphate-Solid", "Phosphate Solid";
+    }
+    .user-index{
+    }

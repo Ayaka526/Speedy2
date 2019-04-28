@@ -1,40 +1,40 @@
 <div class="container">
-
-
   <div class="row">
-        <div><%= form_tag(users_path, :method => 'get') do %>
-              　 <%= text_field_tag :search, params[:search] %>
-            　　   <%= submit_tag "User検索", :name => nil %>
-             <% end %>
-        </div>
-   </div>
-  <table class= "table table-hover table-inverse table-bordered">
-                <thead>
-                    <tr>
-                          <th class ="users-id col-xs-1">ID</th>
-                          <th class ="sign_up_date col-xs-1">登録日</th>
-                          <th class ="users_name col-xs-4">名前</th>
-                        　<th class ="users_mailadress col-xs-4">メールアドレス</th>
-                          <th class ="edit-users col-xs-1"></th>
-                          <th class ="delete-users col-xs-1"></th>
-                  　</tr>
-              　 </thead>
+    <div class="user-search">
+      <h1 class="usr-title"> USER SEARCH</h1>
+      <%= form_tag(users_path, :method => 'get') do %>
+        <%= text_field_tag :search, params[:search], class: "search-input", size: "40" ,placeholder: "User Name" %>
+        <%= button_tag sanitize('<i class="fa fa-search"></i>'), :type => "submit",:class =>"btn btn-default btn-xs search-button" %>
+        <% end %>
+    </div>
+      <table class= "table table-hover table-inverse table-bordered user-table">
+                  <thead>
+                      <tr>
+                            <th class ="users-id col-xs-1">ID</th>
+                            <th class ="sign_up_date col-xs-2">Record Date</th>
+                            <th class ="users_name col-xs-3">User Name</th>
+                          　<th class ="users_mailadress col-xs-4">Mail Address</th>
+                            <th class ="edit-users col-xs-1"></th>
+                            <th class ="delete-users col-xs-1"></th>
+                    　</tr>
+                　 </thead>
 
-              　　<tbody>
-                    <% @users.each do |user| %>
-                      <tr class ="user-item">
-                        　 <td class="users-id"><%= user.id %></td>
-                         　<td class="date"><%= user.created_at.strftime("%Y-%m-%d") %></td>
-                           <td class="users-name"><%= user.name %></td>
-                           <td class="users-email"><%= user.email %></td>
-                           <td class="users-edit">
-                               <%= link_to "EDIT", edit_user_path(user.id), class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
-                           </td>
-                           <td class="users-delete">
-                                <%= link_to "DELETE", users_path(user.id),method: :delete, class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench", data: { confirm: 'Are you sure?' }%>
-                           </td>
-                      </tr>
-                    <% end %>
-                 </tbody>
-  </table>
+                　　<tbody>
+                      <% @users.each do |user| %>
+                        <tr class ="user-item">
+                          　 <td class="users-id"><%= user.id %></td>
+                           　<td class="date"><%= user.created_at.strftime("%Y-%m-%d") %></td>
+                             <td class="users-name"><%= user.name %></td>
+                             <td class="users-email"><%= user.email %></td>
+                             <td class="users-edit">
+                                 <%= link_to "EDIT", edit_user_path(user),class:"col-xs-12 btn btn-default" %>
+                             </td>
+                             <td class="users-delete">
+                                  <%= link_to "DELETE", user_path(user),method: :delete, class:"col-xs-12 btn btn-default", data: { confirm: 'Are you sure?' }%>
+                             </td>
+                        </tr>
+                      <% end %>
+                   </tbody>
+      </table>
+  </div>
 </div>

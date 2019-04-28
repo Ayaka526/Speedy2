@@ -5,7 +5,10 @@
 	.home-body{
         font-family: "Phosphate-Solid", "Phosphate Solid";
         text-transform: uppercase;
-        background: #222;
+        background: dimgray;
+        background-image: repeating-linear-gradient(45deg,
+        #9B9B9B, #9B9B9B 3px,
+        transparent 0, transparent 6px);
         height: 100vh;
         overflow: hidden;
     }
@@ -103,9 +106,7 @@
         background-color: #fff;
     }
 
-    .btn-back:hover {
-        background-color: #9ec34b;
+    .btn-back a:hover {
         border-color: gold;
-        color: gold;
         text-decoration: none;
     }

@@ -8,4 +8,5 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     home_route_path # ログアウト後に遷移
   end
+
 end
