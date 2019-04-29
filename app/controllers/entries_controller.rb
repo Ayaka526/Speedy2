@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
   def index
     @entry = Entry.find(params[:id])
     @q = @feed.entries.ransack(params[:q])
-    @entries = @q.result(distinct: true).page(params[:page]).per(12)
+    @entries = @q.result(distinct: true).order(published: "DESC").page(params[:page]).per(12)
     @entry_ids = Stock.group(:entry_id).order('count(entry_id) desc').limit(5).pluck(:entry_id)
     @all_ranks = Stock.group(:entry_id).where(entry_id: @entry_ids)
     @user = current_user

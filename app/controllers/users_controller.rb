@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_action :set_feed, only: :index
+
 
 	def mypage
 		@user = User.find(params[:user_id])
@@ -10,7 +12,7 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
-		if @user.id != current_user.id
+		unless current_user.id == @user.id || current_user.admin?
 			redirect_to home_route_path
 		end
 	end
@@ -27,7 +29,7 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.search(params[:search])
-		if @user.id != 1
+		unless current_user.admin?
 			redirect_to home_route_path
 		end
 	end
