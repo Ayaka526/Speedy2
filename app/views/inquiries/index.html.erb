@@ -23,7 +23,7 @@
                    		　 <td class="name-user"><%= inquiry.user.name %></td>
                     	 　<td class="title-inquiry"><%= inquiry.title %></td>
 						             <td class="body-inquiry"><%= inquiry.body%></td>
-						             <td class="button-show btn btn-default"><%=link_to "詳細",  inquiry_path(inquiry.id)%></td>
+						             <td class="button-show btn btn-default btn-block"><%=link_to "more",  inquiry_path(inquiry.id)%></td>
                     </tr>
                     <% end %>
            			 </tbody>
