@@ -42,8 +42,6 @@ $(document).ready(function() {
 
 });
 
-
-
 $(document).ready(function() {
   $(function(){
     $('#search').on('click', function() {
