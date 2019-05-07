@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-	before_action :set_feed, only: :index
+
+	# before_action :set_feed, only: :index
+
 
 
 	def mypage
