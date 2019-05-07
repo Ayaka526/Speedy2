@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+   # constraints ->  request { request.session[:user_id].present? } do
+   #  # ログインしてる時のパス
+   #  root to: "feeds#top"
+   #  end
+   #  # ログインしてない時のパス
+   #  root to: 'homes#home'
+
   devise_for :users
   resources :inquiries, only: [:new, :create, :index, :show, :search]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -29,6 +36,7 @@ Rails.application.routes.draw do
     patch '/admin' => 'users#admin_update'
     get :autocomplete_user_email, on: :collection
   end
+
 
 
 end
