@@ -1,32 +1,24 @@
-# Speedy
-***
+# README
 
-仕事や生活で情報収集が欠かせない、しかし情報収集に対しての時間的創出が少ない人へ向けたニュースアプリケーションです。情報収集にかかる時間の削減、選択肢を減らすことで忙しい中でも視覚的に情報を得やすく、効率的なものにしようと考えました。選ぶ時間を省き、片手間に画面を見るだけでいい、流し読みの情報収集ができます。
-***
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## 使用した技術
+Things you may want to cover:
 
-### AWS
-EC2
-### 検索
-ransack
-### ユーザー認証
-devise
-### DB
-mysql
-### ページネーション
-kaminari
-### デザイン
-bootstrap<br>
-font-awesome-sass
-### ajaxを利用した非同期通信
-jQuery
-### 記事の取得
-RSS
-バッチ処理
+* Ruby version
 
-## 機能
-- ユーザ登録機能(sign-in, login, logout, delete)
-- ニュース記事表示機能(カテゴリ別一覧表示）
-- ユーザー機能(記事のストック機能、閲覧履歴表示機能)
-- 問い合わせ機能
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
